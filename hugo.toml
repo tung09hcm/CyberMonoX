@@ -1,6 +1,9 @@
-baseURL = 'https://hugoblogapp.com'
+baseURL = 'https://tung09hcm.github.io/hugoblog_template/'
 languageCode = 'en-us'
 title = 'tung09hcm blog'
+canonifyURLs = true
+relativeURLs = true
+
 
 [pagination]
   pagerSize = 4
