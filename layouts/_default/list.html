@@ -1,0 +1,47 @@
+{{ define "main" }}
+<div class="list">
+  {{ $posts := where .Site.RegularPages "Section" "post" }}
+  {{ $paginator := .Paginate $posts }}
+  {{ range $paginator.Pages }}
+  
+    <div class="listItem" onclick="location.href='{{ .Permalink }}'">
+      
+      <img
+        src={{
+        .Params.image
+        }}
+        alt="{{.Title}}"
+        class="listItemImage"
+        loading="lazy"
+      />
+      <div class="listItemTexts">
+        <h1 class="listItemTitle">
+          <a href="{{.Permalink}}">{{.Title}}</a>
+        </h1>
+        <p class="listItemDesc">{{.Params.description}}</p>
+        <div class="listItemDetail">
+          {{ $avatars := .Params.avatar }}
+          {{ range $index, $term := .GetTerms "authors" }}
+            <img src="{{ index $avatars $index }}" loading="lazy" alt="" class="listItemAvatar"/>
+            <span>
+              
+              <a href="{{ $term.Permalink }}">{{ $term.Name }}</a>
+
+            </span>
+          {{ end }}
+          <time class="listItemCategory">{{ dateFormat .Site.Params.dateFormat  .Date}}</time>
+          <span class="listItemCategory">{{.Params.time}}</span>
+        </div>
+        <div class="listItemCategories">
+          {{ range (.GetTerms "categories") }}
+          <a class="listItemCategory" href={{ .Permalink }}>#{{ .Name }}</a>
+          {{ end }}
+        </div>
+      </div>
+
+    </div>
+  
+  {{ end }} {{ template "_internal/pagination.html" . }}
+</div>
+
+{{ end }}

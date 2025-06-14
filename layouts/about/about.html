@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="listItem">
+      
+      <img
+        src="/images/hecker.jpg"
+        alt="tung09hcm"
+        class="listItemImage"
+        loading="lazy"
+      />
+      <div class="listItemTexts">
+        <h1 class="listItemTitle">
+          <a href="#">Bùi Thanh Tùng</a>
+        </h1>
+        <p class="listItemDesc">A third-year developer at Ho Chi Minh University of Technology, majoring in Software Development</p>
+        <div class="listItemDetail">
+          <time class="listItemCategory">Ho Chi Minh University of Technology</time>
+        </div>
+        <div class="listItemCategories">
+
+          <a class="listItemCategory" href={{ .Permalink }}>Youtube</a>
+          <a class="listItemCategory" href={{ .Permalink }}>Linkedin</a>
+          <a class="listItemCategory" href={{ .Permalink }}>Facebook</a>
+          <a class="listItemCategory" href={{ .Permalink }}>X</a>
+
+        </div>
+      </div>
+
+</div>
+{{ end }}

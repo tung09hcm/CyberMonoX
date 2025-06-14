@@ -1,0 +1,21 @@
+baseURL = 'https://hugoblogapp.com'
+languageCode = 'en-us'
+title = 'tung09hcm blog'
+
+[pagination]
+  pagerSize = 4
+
+[params]
+  description = "The fastest blog"
+  dateFormat = "Jan 2, 2006"
+
+[taxonomies]
+  category = "categories"
+  author = "authors"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = "github-dark"
+
+    
