@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on tung09hcm blog</title>
+    <link>http://localhost:1313/hugoblog_template/categories/</link>
+    <description>Recent content in Categories on tung09hcm blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jun 2025 23:36:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/hugoblog_template/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General</title>
+      <link>http://localhost:1313/hugoblog_template/categories/general/</link>
+      <pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate>
+      <guid>http://localhost:1313/hugoblog_template/categories/general/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>General1</title>
+      <link>http://localhost:1313/hugoblog_template/categories/general1/</link>
+      <pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate>
+      <guid>http://localhost:1313/hugoblog_template/categories/general1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>General2</title>
+      <link>http://localhost:1313/hugoblog_template/categories/general2/</link>
+      <pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate>
+      <guid>http://localhost:1313/hugoblog_template/categories/general2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>General3</title>
+      <link>http://localhost:1313/hugoblog_template/categories/general3/</link>
+      <pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate>
+      <guid>http://localhost:1313/hugoblog_template/categories/general3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Minecraft</title>
+      <link>http://localhost:1313/hugoblog_template/categories/minecraft/</link>
+      <pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate>
+      <guid>http://localhost:1313/hugoblog_template/categories/minecraft/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

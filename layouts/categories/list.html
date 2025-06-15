@@ -2,12 +2,19 @@
 {{ if eq .RelPermalink "/categories/"}} 
 <div>
   {{ range $.Site.Taxonomies.categories.ByCount }}
-
-    <a href="/categories/{{ .Name }}">
-      # {{ .Name }} <small>({{.Count}})</small>
-    </a>
-
-  {{end}}
+    <div class="categoryBlock">
+      <h2 class="categoryHeader" onclick="toggleCategory(this)">
+        ▶ #{{ .Name }} ({{ .Count }})
+      </h2>
+      <div class="postList" style="display: none;">
+        {{ range .Pages }}
+          <div>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
 </div>
 {{ else }}
 <div class="list">
