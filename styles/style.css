@@ -1,8 +1,11 @@
 :root {
-  --bg: #000000;
-  --bgSoft: #212122;
-  --text: #dee4eb;
+  --bg: #1D2D3E;
+  --bgSoft: #a2d2ff;
+  --textItem: #000000;
+  --text: #a2d2ff;
   --textSoft: #white;
+  --navbar: #1D2D3E;
+  --listItemBorder: rgba(255, 255, 255, 0.24);
 }
 
 * {
@@ -11,14 +14,30 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+
+
+body.light .icon-moon {
+  display: none;
+}
+
+body:not(.light) .icon-sun {
+  display: none;
+}
+
+
+
+
 body {
   background: var(--bg);
   color: var(--text);
 }
 
 body.light{
-  --bg: #dee4eb;
+  --bg: #E0F2FE;
   --text: #0b1529;
+  --bgSoft: #a2d2ff;
+  --navbar:#E0F2FE;
+
 }
 
 a {
@@ -49,7 +68,7 @@ a {
   position: sticky;
   top: 0;
   /* background-color: var(--bg); */
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--navbar);
 }
 
 .logo {
@@ -75,7 +94,7 @@ a {
 }
 
 .toggle {
-  width: 40px;
+  width: 30px;
   height: 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -126,7 +145,7 @@ a {
 /* LIST START */
 
 .listItem {
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  border: 1px solid var(--listItemBorder);
   border-radius: 10px;
   padding: 5px;
   display: flex;
@@ -188,11 +207,10 @@ a {
   padding: 5px;
   border-radius: 5px;
   background-color: var(--bgSoft);
-  color: var(--textSoft);
+  color: var(--textItem);
   font-size: 14px;
   white-space: nowrap;
 }
-
 .pagination{
   display: flex;
   gap: 10px;
@@ -219,7 +237,8 @@ a {
   color: var(--bg);
 }
 .page-item.disabled{
-  background-color: #313845;
+  background-color: var(--bg);
+  /* color: var(--bg); */
   cursor: not-allowed;
 }
 
@@ -275,7 +294,7 @@ a {
   padding: 5px;
   border-radius: 5px;
   background-color: var(--bgSoft);
-  color: var(--textSoft);
+  color: var(--textItem);
   font-size: 14px;
 }
 
@@ -389,7 +408,6 @@ a {
   border: 1px solid #444;
   padding: 0.5rem;
   border-radius: 5px;
-  background: #222;
   color: #fff;
 }
 .categoryHeader {
@@ -397,6 +415,7 @@ a {
   user-select: none;
   font-weight: bold;
   font-size: 1.2rem;
+  color: var(--text);
 }
 .postList {
   margin-left: 1rem;
