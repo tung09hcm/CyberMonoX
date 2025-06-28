@@ -4,7 +4,7 @@
   {{ range $.Site.Taxonomies.categories.ByCount }}
     <div class="categoryBlock">
       <h2 class="categoryHeader" onclick="toggleCategory(this)">
-        ▶ #{{ .Name }} ({{ .Count }})
+        ▶ #{{ .Name }}({{ .Count }})
       </h2>
       <div class="postList" style="display: none;">
         {{ range .Pages }}
