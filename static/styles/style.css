@@ -13,7 +13,9 @@
   box-sizing: border-box;
   font-family: 'JetBrains Mono', monospace;
 }
-
+.cate{
+  color: var(--text);
+}
 
 
 body.light .icon-moon {
