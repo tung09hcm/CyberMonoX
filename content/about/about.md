@@ -1,14 +1,11 @@
 +++
 title = 'About Me - A Journey into Backend development'
 date = 2025-06-12T23:36:00+07:00
-draft = false
 description = "An in-depth introduction of my journey as a third-year software developer at Ho Chi Minh University of Technology"
 image = "/images/sadrobot.jpg"
-imageBig = "/images/sadrobot.jpg"
 categories = ["general"]
 authors = []
 avatar = []
-time = "14min"
 +++
 
 ## About Me

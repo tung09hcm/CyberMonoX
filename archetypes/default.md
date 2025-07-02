@@ -1,12 +1,9 @@
 +++
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 date = {{ .Date }}
-draft = false
 description = ""
 image = ""
-imageBig = ""
 categories = ["general"]
-authors = ["tung09hcm"]
-avatar = "/images/avatar.webp"
-time = ""
+authors = ["tien0246"]
+avatar = ["/images/doraemon.jpg"]
 +++

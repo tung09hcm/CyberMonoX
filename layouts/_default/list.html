@@ -30,7 +30,6 @@
             </span>
           {{ end }}
           <time class="listItemCategory">{{ dateFormat .Site.Params.dateFormat  .Date}}</time>
-          <span class="listItemCategory">{{.Params.time}}</span>
         </div>
         <div class="listItemCategories">
           {{ range (.GetTerms "categories") }}
