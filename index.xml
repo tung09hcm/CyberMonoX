@@ -21,7 +21,10 @@
 &lt;p>I&amp;rsquo;m passionate about backend systems, scalable applications, and building full-stack solutions.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">greet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">):&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;Hello, &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">! Welcome to my blog.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="./images/whale.jpg" alt="title">&lt;/p></description></item><item><title>About Me - A Journey into Backend development</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself/</guid><description>&lt;div class="hugo-encryptor-container">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="./images/whale.jpg" alt="title">&lt;/p></description></item><item><title>Password post</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself/</guid><description>&lt;div class="hugo-encryptor-container">
+ &lt;h1>
+ This content needs password 
+ &lt;/h1>
  &lt;div class="hugo-encryptor-form">
  &lt;input
  class="hugo-encryptor-input"
@@ -45,4 +48,85 @@
 &lt;p>This is a test message. Just pure ASCII text.&lt;/p>
 
  &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>Table of content</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself-copy/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself-copy/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Welcome to my personal developer journey. I&amp;rsquo;m currently a third-year backend developer at Ho Chi Minh University of Technology. This blog post outlines my growth, challenges, and lessons learned.&lt;/p>
+&lt;h2 id="career-timeline">Career Timeline&lt;/h2>
+&lt;h3 id="year-1--foundation">Year 1 – Foundation&lt;/h3>
+&lt;ul>
+&lt;li>Learned C, C++, and basic data structures.&lt;/li>
+&lt;li>Built CLI tools and mini projects (calculator, file manager).&lt;/li>
+&lt;li>Studied databases: MySQL, SQLite.&lt;/li>
+&lt;li>First exposure to Git and GitHub.&lt;/li>
+&lt;/ul>
+&lt;h3 id="year-2--growth">Year 2 – Growth&lt;/h3>
+&lt;ul>
+&lt;li>Started working with Node.js and Express.&lt;/li>
+&lt;li>Built REST APIs with MongoDB and PostgreSQL.&lt;/li>
+&lt;li>Learned Docker and basic CI/CD with GitHub Actions.&lt;/li>
+&lt;li>Joined university research team on distributed systems.&lt;/li>
+&lt;/ul>
+&lt;h3 id="year-3--real-world-experience">Year 3 – Real-World Experience&lt;/h3>
+&lt;ul>
+&lt;li>Worked part-time at a startup as backend intern.&lt;/li>
+&lt;li>Built scalable APIs, message queues (RabbitMQ).&lt;/li>
+&lt;li>Introduced Redis caching and JWT auth.&lt;/li>
+&lt;li>Refactored legacy codebase into modular structure.&lt;/li>
+&lt;/ul>
+&lt;h2 id="skills-and-technologies">Skills and Technologies&lt;/h2>
+&lt;h3 id="programming-languages">Programming Languages&lt;/h3>
+&lt;ul>
+&lt;li>C/C++&lt;/li>
+&lt;li>JavaScript (Node.js)&lt;/li>
+&lt;li>Python (for scripting)&lt;/li>
+&lt;/ul>
+&lt;h3 id="backend">Backend&lt;/h3>
+&lt;ul>
+&lt;li>Express.js&lt;/li>
+&lt;li>NestJS (learning)&lt;/li>
+&lt;li>MongoDB, PostgreSQL&lt;/li>
+&lt;li>Redis&lt;/li>
+&lt;/ul>
+&lt;h3 id="tools--devops">Tools &amp;amp; DevOps&lt;/h3>
+&lt;ul>
+&lt;li>Git, GitHub&lt;/li>
+&lt;li>Docker, Docker Compose&lt;/li>
+&lt;li>Nginx&lt;/li>
+&lt;li>GitHub Actions&lt;/li>
+&lt;/ul>
+&lt;h3 id="soft-skills">Soft Skills&lt;/h3>
+&lt;ul>
+&lt;li>Public speaking (in English &amp;amp; Vietnamese)&lt;/li>
+&lt;li>Technical writing&lt;/li>
+&lt;li>Team collaboration via Git flow&lt;/li>
+&lt;/ul>
+&lt;h2 id="personal-projects">Personal Projects&lt;/h2>
+&lt;h3 id="hugo--markdown-blog">Hugo + Markdown Blog&lt;/h3>
+&lt;ul>
+&lt;li>Built this blog using Hugo static site generator.&lt;/li>
+&lt;li>Supports encrypted content using custom JS.&lt;/li>
+&lt;li>Responsive, dark/light mode, fast loading.&lt;/li>
+&lt;/ul>
+&lt;h3 id="url-shortener-service">URL Shortener Service&lt;/h3>
+&lt;ul>
+&lt;li>A Node.js microservice using Redis.&lt;/li>
+&lt;li>Custom slugs, stats tracking, deployed on Render.&lt;/li>
+&lt;/ul>
+&lt;h3 id="portfolio-website">Portfolio Website&lt;/h3>
+&lt;ul>
+&lt;li>HTML/CSS/JS (vanilla) + Scroll animation.&lt;/li>
+&lt;li>Deployed on GitHub Pages with custom domain.&lt;/li>
+&lt;/ul>
+&lt;h2 id="challenges-faced">Challenges Faced&lt;/h2>
+&lt;ul>
+&lt;li>Debugging production failures under pressure.&lt;/li>
+&lt;li>Balancing school work and part-time jobs.&lt;/li>
+&lt;li>Migrating data between SQL and NoSQL systems.&lt;/li>
+&lt;/ul>
+&lt;h2 id="whats-next">What&amp;rsquo;s Next?&lt;/h2>
+&lt;ul>
+&lt;li>Learn Go and microservice architecture.&lt;/li>
+&lt;li>Contribute to open source (focused on DevOps tooling).&lt;/li>
+&lt;li>Build a CI/CD boilerplate starter for small backend teams.&lt;/li>
+&lt;/ul>
+&lt;h2 id="final-thoughts">Final Thoughts&lt;/h2>
+&lt;p>Thanks for reading my journey! If you’re starting out in backend, remember: start small, build things, break them, and iterate.&lt;/p></description></item></channel></rss>
