@@ -1,0 +1,7 @@
+# Hugo build output
+/public/
+/resources/
+
+# Node.js
+node_modules/
+package-lock.json

@@ -10,30 +10,12 @@ authors = ["tung09hcm", "tien0246"]
 avatar = ["/images/hecker.jpg", "/images/doraemon.jpg"]
 time = "14min"
 +++
+{{% hugo-encryptor "123456" %}}
 
-## About Me
+# You cannot see me unless you've got the password!
 
-I am currently a third-year developer at Ho Chi Minh University of Technology, majoring in Software Development.
+This is the content you want to encrypt!
 
-My backend stack includes:
-- **Spring Boot (Java)**
-- **ASP.NET (C#)**
-- **PHP Laravel**
-- **Node.js (Express, NestJS)**
+This is a test message. Just pure ASCII text.
 
-Database experience:
-- **SQL Server**
-- **PostgreSQL**
-- **MongoDB**
-
-I also work with:
-- **Android Development** using Kotlin & Jetpack Compose
-- **Game Development** using Unity and C#
-
-I'm passionate about backend systems, scalable applications, and building full-stack solutions.
-
-```python
-def greet(name):
-    print(f"Hello, {name}! Welcome to my blog.")
-```
-![title](/images/whale.jpg)
+{{% /hugo-encryptor %}}
