@@ -6,8 +6,14 @@ function _click_handler(btn) {
   const password = input.value;
   const encrypted = cipherTextDiv.textContent.trim();
 
-  const tocLinks = document.querySelectorAll(".toc-fixed");
-  tocLinks.style.display = "block";
+  const toc = document.querySelector(".toc-fixed");
+  if (toc) {
+    if (window.innerWidth >= 1024) {
+      toc.style.display = "block";
+    } else {
+      toc.style.display = "none";
+    }
+  }
 
   try {
     const decryptedBytes = CryptoJS.AES.decrypt(encrypted, password);
