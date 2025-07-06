@@ -6,6 +6,7 @@
   --textSoft: #white;
   --navbar: #1D2D3E;
   --listItemBorder: rgba(255, 255, 255, 0.24);
+  --tocHover: white;
 }
 
 * {
@@ -40,6 +41,7 @@ body.light{
   --bgSoft: #a2d2ff;
   --navbar:#E0F2FE;
   --listItemBorder: #1D2D3E;
+  --tocHover: #a2d2ff;
 }
 
 a {
@@ -77,8 +79,8 @@ a {
 }
 
 .toc-fixed li:hover {
-  border-left-color: #a2d2ff;
-  color: #a2d2ff;
+  border-left-color: var(--tocHover);
+  color: var(--tocHover);
 }
 
 .toc-fixed a {
@@ -91,7 +93,7 @@ a {
 }
 /* Highlight TOC item đang active */
 .toc-fixed a.active {
-  color: #a2d2ff;
+  color: var(--tocHover);
   padding: 2px 6px;
   border-radius: 6px;
   font-weight: bold;
