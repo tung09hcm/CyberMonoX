@@ -35,11 +35,11 @@
           {{ $categories := .GetTerms "categories" }}
           {{ $count := len $categories }}
 
-          {{ range first 4 $categories }}
+          {{ range first 5 $categories }}
             <a class="listItemCategory" href="{{ .Permalink }}">#{{ .Name }}</a>
           {{ end }}
 
-          {{ if gt $count 4 }}
+          {{ if gt $count 5 }}
             <span class="listItemCategory more-categories">…</span>
           {{ end }}
         </div>
