@@ -9,7 +9,7 @@ avatar = ["/images/hecker.jpg", "/images/doraemon.jpg"]
 +++
 {{% hugo-encryptor "123456" %}}
 
-# You cannot see me unless you've got the password!
+## You cannot see me unless you've got the password!
 
 This is the content you want to encrypt!
 

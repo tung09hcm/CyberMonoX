@@ -1,16 +1,16 @@
 function buildTOCFromDecryptedContent() {
   const container = document.querySelector(".hugo-encryptor-cipher-text");
-  const tocNav = document.querySelector(".toc-fixed nav#TableOfContents");
+  const tocNav = document.querySelector(".toc-fixed");
   if (!container || !tocNav) return;
 
-  const headings = container.querySelectorAll("h2[id], h3[id], h4[id]");
+  const headings = container.querySelectorAll("h1[id], h2[id], h3[id], h4[id]");
   if (headings.length === 0) return;
 
   let currentLevel = 2;
   let tocStack = [document.createElement("ul")];
 
   headings.forEach((heading) => {
-    const level = parseInt(heading.tagName.substring(1)); // 2 for h2, 3 for h3, etc.
+    const level = parseInt(heading.tagName.substring(1)); 
     const text = heading.textContent;
     const id = heading.id;
 
