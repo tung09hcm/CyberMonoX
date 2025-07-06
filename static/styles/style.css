@@ -10,10 +10,24 @@
   --buttonHover: white;
 }
 pre {
-  overflow-x: auto;
-  scrollbar-width: thin;              /* Firefox */
-  scrollbar-color: #a4a5a7 #1e293b;   /* Firefox: màu thanh + track */
+  border-radius: 10px;
+  overflow-x: auto;             /* cho phép cuộn dọc */
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+  /* max-height: 500px; */
+  scrollbar-color: #a4a5a7 #1e293b;
 }
+pre::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari */
+}
+pre,
+pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+
 
 img{
   width: 100%;
