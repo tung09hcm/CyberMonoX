@@ -32,10 +32,18 @@
           {{ end }}
         </div>
         <div class="listItemCategories">
-          {{ range (.GetTerms "categories") }}
-          <a class="listItemCategory" href={{ .Permalink }}>#{{ .Name }}</a>
+          {{ $categories := .GetTerms "categories" }}
+          {{ $count := len $categories }}
+
+          {{ range first 4 $categories }}
+            <a class="listItemCategory" href="{{ .Permalink }}">#{{ .Name }}</a>
+          {{ end }}
+
+          {{ if gt $count 4 }}
+            <span class="listItemCategory more-categories">…</span>
           {{ end }}
         </div>
+
       </div>
 
     </div>

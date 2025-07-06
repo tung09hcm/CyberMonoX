@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Hamburger icon */
+.hamburger {
+  width: 25px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  position: absolute;
+  top: 60px; /* tùy navbar */
+  right: 0;
+  background: white;
+  width: 200px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+  z-index: 999;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: black;
+  text-decoration: none;
+}
+
+.mobile-menu.show {
+  transform: translateX(0);
+}
+
+.hidden {
+  display: none;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Nút Hamburger -->
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Menu ẩn -->
+<div id="mobileMenu" class="mobile-menu hidden">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/posts">Posts</a>
+</div>
+<script>
+    function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+  menu.classList.remove('hidden');
+}
+
+</script>
+</body>
+</html>

@@ -1,9 +1,9 @@
 +++
 title = 'Table of content'
 date = 2025-06-12T23:36:00+07:00
-description = "An in-depth introduction of my journey as a third-year software developer at Ho Chi Minh University of Technology"
+description = "An in-depth introduction of my journey as a third-year software developer at Ho Chi Minh University of Technology ddddddddddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
 image = "/images/sadrobot.jpg"
-categories = ["general","general1","general2","general3"]
+categories = ["general","general1","general2","general3","general4","general5","general6","general7","general8","general9","genreal100"]
 authors = ["tung09hcm", "tien0246"]
 avatar = ["/images/hecker.jpg", "/images/doraemon.jpg"]
 +++
@@ -29,7 +29,7 @@ Welcome to my personal developer journey. I'm currently a third-year backend dev
 - Learned Docker and basic CI/CD with GitHub Actions.
 - Joined university research team on distributed systems.
 
-### Year 3 – Real-World Experience
+### Year 3 – Real-World Experience bla bla bla bla bla bla
 
 - Worked part-time at a startup as backend intern.
 - Built scalable APIs, message queues (RabbitMQ).
