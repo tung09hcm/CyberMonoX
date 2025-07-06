@@ -37,7 +37,11 @@ function buildTOCFromDecryptedContent() {
     }
   });
 
-  tocNav.innerHTML = ""; // Clear old TOC
+  tocNav.innerHTML = "";
+  const tocHeading = document.createElement("h2");
+  tocHeading.textContent = "Table of Contents";
+  tocNav.appendChild(tocHeading);
+  tocNav.appendChild(document.createElement("br"));
   tocNav.appendChild(tocStack[0]);
 }
 
