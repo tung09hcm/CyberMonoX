@@ -68,7 +68,13 @@ function _click_handler(btn) {
     const decrypted = decryptedBytes.toString(CryptoJS.enc.Utf8);
 
     if (!decrypted) {
-      alert("Sai mật khẩu hoặc nội dung không hợp lệ.");
+      alert("Wrong password");
+      const isEncrypted = document.querySelector(".hugo-encryptor-cipher-text") !== null;
+      const toc = document.querySelector(".toc-fixed");
+
+      if (isEncrypted && toc) {
+        toc.style.display = "none";
+      }
       return;
     }
 
@@ -86,7 +92,7 @@ function _click_handler(btn) {
       toc.style.display = "none";
     }
 
-    alert("Giải mã thất bại.");
+    alert("Wrong password");
     console.error(err);
   }
 }
