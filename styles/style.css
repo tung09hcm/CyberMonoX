@@ -7,6 +7,7 @@
   --navbar: #1D2D3E;
   --listItemBorder: rgba(255, 255, 255, 0.24);
   --tocHover: white;
+  --buttonHover: white;
 }
 
 * {
@@ -41,7 +42,8 @@ body.light{
   --bgSoft: #a2d2ff;
   --navbar:#E0F2FE;
   --listItemBorder: #1D2D3E;
-  --tocHover: #4b6074;
+  --tocHover: #a2d2ff;
+  --buttonHover: #465a6c;
 }
 
 a {
@@ -716,7 +718,8 @@ a {
   transition: background-color 0.2s ease-in-out;
 }
 .hugo-encryptor-button:hover{
-  background-color: var(--tocHover);
+  background-color: var(--buttonHover);
+  color: var(--text);
 }
 
 h2, h3, h4, h5, h6 {
@@ -757,7 +760,8 @@ h2, h3, h4, h5, h6 {
 }
 
 .modal-box button:hover {
-    background: var(--tocHover);
+  background-color: var(--buttonHover);
+  color: var(--text);
 }
 
 .hidden {
