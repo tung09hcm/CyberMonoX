@@ -41,6 +41,7 @@ body.light{
   --bgSoft: #a2d2ff;
   --navbar:#E0F2FE;
   --listItemBorder: #1D2D3E;
+  --tocHover: #4b6074;
 }
 
 a {
