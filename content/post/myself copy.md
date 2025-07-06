@@ -100,7 +100,7 @@ Thanks for reading my journey! If you’re starting out in backend, remember: st
 
 ```python
 def printHelloworld():
-    print("=========================================================================================================")
+    print("hello world  welcome to my blog")
 def printHelloworld():
     print("=========================================================================================================")
 def printHelloworld():
