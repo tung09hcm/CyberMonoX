@@ -26,9 +26,12 @@
         {{ .TableOfContents }}
       </div>
     {{ end }}
+    
     <div class="container">
       {{ partial "navbar" . }}
-      {{ block "main" . }} {{ end }}
+      <div class="main-wrapper">
+        {{ block "main" . }} {{ end }}
+      </div>
       {{/*  {{ partial "footer" . }}  */}}
     </div>
 
