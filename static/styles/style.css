@@ -18,7 +18,9 @@
 .cate{
   color: var(--text);
 }
-
+.message{
+  flex-wrap: wrap;
+}
 
 body.light .icon-moon {
   display: none;
@@ -45,10 +47,16 @@ body.light{
   --tocHover: #a2d2ff;
   --buttonHover: #465a6c;
 }
+.listItemTitle__name {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: bold;
+  font-size: 26px;
+}
 
 a {
   color: inherit;
   text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
 }
 .listItemDesc {
   display: -webkit-box;
@@ -128,6 +136,97 @@ a {
 }
 
 
+
+
+.hugo-encryptor-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  align-items: center;
+}
+
+.hugo-encryptor-input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: var(--bg);
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  color: var(--text);
+  outline: none;
+  width: 100%;
+}
+
+.hugo-encryptor-input::placeholder {
+  color: #94a3b8;
+}
+
+.hugo-encryptor-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bgSoft);
+  color: #1D2D3E;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.hugo-encryptor-button:hover{
+  background-color: var(--buttonHover);
+  color: var(--text);
+}
+
+h2, h3, h4, h5, h6 {
+  scroll-margin-top: 100px; /* Điều chỉnh theo chiều cao navbar cố định */
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Nền tối */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-box {
+
+    width: 30%;
+    background: var(--bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+}
+
+.modal-box button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    background: var(--bgSoft);
+    color: var(--textItem);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-box button:hover {
+  background-color: var(--buttonHover);
+  color: var(--text);
+}
+
+.hidden {
+    display: none;
+}
+.main-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
 
 
 .container {
@@ -222,6 +321,7 @@ a {
 }
 
 .social {
+  border: none;
   display: flex;
   gap: 10px;
 }
@@ -292,6 +392,14 @@ a {
   min-width: 0;
 }
 .listItemCategory {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--bgSoft);
+  color: var(--textItem);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.social{
   width: 30px;
   height: 30px;
   display: flex;
@@ -301,7 +409,6 @@ a {
   border-radius: 6px;
   background-color: var(--bgSoft);
 }
-
 .pagination{
   display: flex;
   gap: 10px;
@@ -607,13 +714,15 @@ a {
     width: 100%;
     object-fit: cover;
   }
+  .modal-box{
+    width: 70%;
+  }
 }
 @media (max-width: 768px) {
   .hugo-encryptor-form {
     flex-direction: column;
     align-items: stretch; 
   }
-
   .hugo-encryptor-input,
   .hugo-encryptor-button {
     width: 100%;
@@ -664,7 +773,9 @@ a {
     width: 100%;
     object-fit: cover;
   }
-
+  .modal-box{
+    width: 70%;
+  }
 }
 @media (max-width: 640px) {
   .container{
@@ -685,94 +796,7 @@ a {
   .toc-fixed{
     display: none;
   }
-}
-
-
-.hugo-encryptor-form {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
-  align-items: center;
-}
-
-.hugo-encryptor-input {
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  background-color: var(--bg);
-  border: 1px solid #64748b;
-  border-radius: 6px;
-  color: var(--text);
-  outline: none;
-  width: 100%;
-}
-
-.hugo-encryptor-input::placeholder {
-  color: #94a3b8;
-}
-
-.hugo-encryptor-button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  background-color: var(--bgSoft);
-  color: #1D2D3E;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-.hugo-encryptor-button:hover{
-  background-color: var(--buttonHover);
-  color: var(--text);
-}
-
-h2, h3, h4, h5, h6 {
-  scroll-margin-top: 100px; /* Điều chỉnh theo chiều cao navbar cố định */
-}
-
-
-.modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* Nền tối */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.modal-box {
-    width: 30%;
-    background: var(--bg);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 80%;
-}
-
-.modal-box button {
-    margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
-    font-weight: bold;
-    background: var(--bgSoft);
-    color: var(--textItem);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.modal-box button:hover {
-  background-color: var(--buttonHover);
-  color: var(--text);
-}
-
-.hidden {
-    display: none;
-}
-.main-wrapper {
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
+  .modal-box{
+    width: 70%;
+  }
 }

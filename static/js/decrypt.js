@@ -103,8 +103,5 @@ function _click_handler(btn) {
     if (isEncrypted && toc) {
       toc.style.display = "none";
     }
-
-    showCustomAlert("Incorrect password. Please try again with the correct one.");
-    console.error(err);
   }
 }
