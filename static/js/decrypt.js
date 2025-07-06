@@ -6,6 +6,9 @@ function _click_handler(btn) {
   const password = input.value;
   const encrypted = cipherTextDiv.textContent.trim();
 
+  const tocLinks = document.querySelectorAll(".toc-fixed");
+  tocLinks.style.display = "block";
+
   try {
     const decryptedBytes = CryptoJS.AES.decrypt(encrypted, password);
     const decrypted = decryptedBytes.toString(CryptoJS.enc.Utf8);
@@ -16,6 +19,7 @@ function _click_handler(btn) {
     }
 
     cipherTextDiv.innerHTML = decrypted;
+    
     cipherTextDiv.style.display = "block";
     input.style.display = "none";
     btn.style.display = "none";
