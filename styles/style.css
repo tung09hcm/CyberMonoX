@@ -9,7 +9,12 @@
   --tocHover: white;
   --buttonHover: white;
 }
-
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
 * {
   margin: 0;
   box-sizing: border-box;
@@ -520,8 +525,11 @@ h2, h3, h4, h5, h6 {
 }
 
 .singleContent {
+  width: 100%;          
+  display: block;      
   font-size: 15px;
   line-height: 32px;
+  box-sizing: border-box; 
 }
 
 .singleContent p,
