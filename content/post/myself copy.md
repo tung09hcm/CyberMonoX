@@ -98,4 +98,25 @@ Welcome to my personal developer journey. I'm currently a third-year backend dev
 
 Thanks for reading my journey! If you’re starting out in backend, remember: start small, build things, break them, and iterate.
 
+```python
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+def printHelloworld():
+    print("=========================================================================================================")
+
+```
 > "Programs must be written for people to read, and only incidentally for machines to execute." — Harold Abelson
