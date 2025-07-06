@@ -4,7 +4,7 @@
   --textItem: #000000;
   --text: #a2d2ff;
   --textSoft: #white;
-  --navbar: #1D2D3E;
+  --navbar: #1d2d3e;
   --listItemBorder: rgba(255, 255, 255, 0.24);
   --tocHover: white;
   --buttonHover: white;
@@ -147,13 +147,14 @@ a {
 
 .navbar {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 105px;
   position: sticky;
-  top: 0;
-  /* background-color: var(--bg); */
-  background-color: var(--navbar);
+  top: 0  ;
+  border: 1px solid var(--bg);
+  background-color: var(--bg);
 }
 
 .logo {
@@ -392,6 +393,8 @@ a {
 }
 
 .singleBottom {
+  scroll-margin-top: 100px;
+  padding: 8px;   
   border: 1px solid var(--listItemBorder);
   padding: 10px;
   border-radius: 10px;
@@ -402,7 +405,6 @@ a {
 }
 
 .singleContent {
-  flex: 3;
   font-size: 15px;
   line-height: 32px;
 }
@@ -553,9 +555,6 @@ a {
   }
 }
 @media (max-width: 1024px) {
-  .container{
-    width: 100%;
-  }
   .hugo-encryptor-form {
     flex-direction: column;
     align-items: stretch; 
@@ -602,9 +601,6 @@ a {
   }
 }
 @media (max-width: 768px) {
-  .container{
-    width: 100%;
-  }
   .hugo-encryptor-form {
     flex-direction: column;
     align-items: stretch; 
@@ -616,8 +612,6 @@ a {
   }
   .container {
     max-width: 640px;
-    padding-left: 10px;
-    padding-right: 10px;
   }
   .singleHead {
     flex-direction: column;  
@@ -644,7 +638,6 @@ a {
 
   .singleBottom {
     flex-direction: column;
-    gap: 20px;
   }
 
   .singleContent {
@@ -769,4 +762,9 @@ h2, h3, h4, h5, h6 {
 
 .hidden {
     display: none;
+}
+.main-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
 }
