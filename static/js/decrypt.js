@@ -1,3 +1,47 @@
+function buildTOCFromDecryptedContent() {
+  const container = document.querySelector(".hugo-encryptor-cipher-text");
+  const tocNav = document.querySelector(".toc-fixed nav#TableOfContents");
+  if (!container || !tocNav) return;
+
+  const headings = container.querySelectorAll("h2[id], h3[id], h4[id]");
+  if (headings.length === 0) return;
+
+  let currentLevel = 2;
+  let tocStack = [document.createElement("ul")];
+
+  headings.forEach((heading) => {
+    const level = parseInt(heading.tagName.substring(1)); // 2 for h2, 3 for h3, etc.
+    const text = heading.textContent;
+    const id = heading.id;
+
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = `#${id}`;
+    a.textContent = text;
+    li.appendChild(a);
+
+    if (level === currentLevel) {
+      tocStack[tocStack.length - 1].appendChild(li);
+    } else if (level > currentLevel) {
+      const newUl = document.createElement("ul");
+      newUl.appendChild(li);
+      tocStack[tocStack.length - 1].lastElementChild.appendChild(newUl);
+      tocStack.push(newUl);
+      currentLevel = level;
+    } else {
+      while (currentLevel > level) {
+        tocStack.pop();
+        currentLevel--;
+      }
+      tocStack[tocStack.length - 1].appendChild(li);
+    }
+  });
+
+  tocNav.innerHTML = ""; // Clear old TOC
+  tocNav.appendChild(tocStack[0]);
+}
+
+
 function _click_handler(btn) {
   const container = btn.closest(".hugo-encryptor-container");
   const input = container.querySelector(".hugo-encryptor-input");
@@ -29,6 +73,7 @@ function _click_handler(btn) {
     cipherTextDiv.style.display = "block";
     input.style.display = "none";
     btn.style.display = "none";
+    buildTOCFromDecryptedContent();
   } catch (err) {
     alert("Giải mã thất bại.");
     console.error(err);
