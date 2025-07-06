@@ -41,7 +41,6 @@ body.light{
   --bgSoft: #a2d2ff;
   --navbar:#E0F2FE;
   --listItemBorder: #1D2D3E;
-  --tocHover: #a2d2ff;
 }
 
 a {
@@ -716,7 +715,7 @@ a {
   transition: background-color 0.2s ease-in-out;
 }
 .hugo-encryptor-button:hover{
-  background-color: #6a8baa;
+  background-color: var(--tocHover);
 }
 
 h2, h3, h4, h5, h6 {
