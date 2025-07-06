@@ -39,7 +39,7 @@ body.light{
   --text: #0b1529;
   --bgSoft: #a2d2ff;
   --navbar:#E0F2FE;
-
+  --listItemBorder: #1D2D3E;
 }
 
 a {
@@ -50,7 +50,7 @@ a {
   border: 1px solid var(--listItemBorder);
   position: fixed;
   top: 100px;
-  width: 20vw;
+  width: 20%;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   padding: 1rem;
@@ -77,8 +77,8 @@ a {
 }
 
 .toc-fixed li:hover {
-  border-left-color: var(--listItemBorder);
-  color: #fff;
+  border-left-color: #a2d2ff;
+  color: #a2d2ff;
 }
 
 .toc-fixed a {
@@ -91,7 +91,7 @@ a {
 }
 /* Highlight TOC item đang active */
 .toc-fixed a.active {
-  color: white;
+  color: #a2d2ff;
   padding: 2px 6px;
   border-radius: 6px;
   font-weight: bold;
@@ -479,11 +479,32 @@ a {
 .postList {
   margin-left: 1rem;
   margin-top: 0.5rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
 }
-.postList li {
-  list-style-type: disc;
-  margin: 0.25rem 0;
+
+/* Khi mở */
+.postList.open {
+  max-height: 1000px; /* Đủ lớn để hiển thị nội dung */
+  opacity: 1;
 }
+
+/* Từng dòng post */
+.postList div {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Khi mở */
+.postList.open div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* categories end */
 @media (max-width: 1536px) {
   .container {
@@ -501,6 +522,9 @@ a {
   }
 }
 @media (max-width: 1024px) {
+  .container{
+    width: 100%;
+  }
   .hugo-encryptor-form {
     flex-direction: column;
     align-items: stretch; 
@@ -547,6 +571,9 @@ a {
   }
 }
 @media (max-width: 768px) {
+  .container{
+    width: 100%;
+  }
   .hugo-encryptor-form {
     flex-direction: column;
     align-items: stretch; 
@@ -608,6 +635,9 @@ a {
 
 }
 @media (max-width: 640px) {
+  .container{
+    width: 100%;
+  }
   .hugo-encryptor-form {
     flex-direction: column;
     align-items: stretch; 
@@ -636,13 +666,12 @@ a {
 .hugo-encryptor-input {
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  background-color: #1e293b;
+  background-color: var(--bg);
   border: 1px solid #64748b;
   border-radius: 6px;
-  color: #e2e8f0;
+  color: var(--text);
   outline: none;
-  width: 300px;
+  width: 100%;
 }
 
 .hugo-encryptor-input::placeholder {
@@ -654,10 +683,16 @@ a {
   font-size: 1rem;
   font-family: 'JetBrains Mono', monospace;
   background-color: var(--bgSoft);
-  color: var(--navbar);
+  color: #1D2D3E;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
+.hugo-encryptor-button:hover{
+  background-color: #6a8baa;
+}
 
+h2, h3, h4, h5, h6 {
+  scroll-margin-top: 100px; /* Điều chỉnh theo chiều cao navbar cố định */
+}
