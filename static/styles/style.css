@@ -71,7 +71,7 @@ a {
 .toc-fixed {
   width: 20%;
   min-width: 200px;
-  max-width: 700px;
+  max-width: 400px;
   border: 1px solid var(--listItemBorder);
   position: fixed;
   top: 100px;
@@ -246,8 +246,11 @@ a {
   transform: translateY(-10px);
 } */
 .listItemTitle {
+  display: flex;
+  flex-direction: column;
   font-size: 25px;
   word-break: break-word;
+  gap: 5px;
 }
 
 .listItemImage {
@@ -289,13 +292,16 @@ a {
   min-width: 0;
 }
 .listItemCategory {
-  padding: 5px;
-  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--listItemBorder);
+  border-radius: 6px;
   background-color: var(--bgSoft);
-  color: var(--textItem);
-  font-size: 14px;
-  white-space: nowrap;
 }
+
 .pagination{
   display: flex;
   gap: 10px;
@@ -387,10 +393,12 @@ a {
 }
 
 .singleHeadImg {
-  flex: 1;
-  max-height: 350px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
+
 
 .singleBottom {
   scroll-margin-top: 100px;
