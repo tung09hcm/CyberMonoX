@@ -18,6 +18,7 @@
         <h1 class="listItemTitle">
           <a href="{{.Permalink}}">{{.Title}}</a>
         </h1>
+        <time>{{ dateFormat .Site.Params.dateFormat  .Date}}</time>
         <p class="listItemDesc">{{.Params.description}}</p>
         <div class="listItemDetail">
           {{ $avatars := .Params.avatar }}
@@ -29,7 +30,6 @@
 
             </span>
           {{ end }}
-          <time class="listItemCategory">{{ dateFormat .Site.Params.dateFormat  .Date}}</time>
         </div>
         <div class="listItemCategories">
           {{ range (.GetTerms "categories") }}

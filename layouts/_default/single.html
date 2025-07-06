@@ -15,8 +15,11 @@
 
           </span>
         {{ end }}
+        
+      </div>
+      <div class="singleHeadDetail">
         {{ range (.GetTerms "categories")}}
-        <a href={{.Permalink}} class="singleCategory">#{{ .Name }}</a>
+          <a href={{.Permalink}} class="singleCategory">#{{ .Name }}</a>
         {{end}}
       </div>
       

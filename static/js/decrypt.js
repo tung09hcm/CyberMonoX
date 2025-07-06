@@ -79,6 +79,13 @@ function _click_handler(btn) {
     btn.style.display = "none";
     buildTOCFromDecryptedContent();
   } catch (err) {
+    const isEncrypted = document.querySelector(".hugo-encryptor-cipher-text") !== null;
+    const toc = document.querySelector(".toc-fixed");
+
+    if (isEncrypted && toc) {
+      toc.style.display = "none";
+    }
+
     alert("Giải mã thất bại.");
     console.error(err);
   }
