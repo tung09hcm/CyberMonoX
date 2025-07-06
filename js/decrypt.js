@@ -1,3 +1,15 @@
+function showCustomAlert(message) {
+    const overlay = document.getElementById('customAlertOverlay');
+    const messageBox = document.getElementById('customAlertMessage');
+    messageBox.textContent = message;
+    overlay.classList.remove('hidden');
+}
+
+function closeCustomAlert() {
+    const overlay = document.getElementById('customAlertOverlay');
+    overlay.classList.add('hidden');
+}
+
 function buildTOCFromDecryptedContent() {
   const container = document.querySelector(".hugo-encryptor-cipher-text");
   const tocNav = document.querySelector(".toc-fixed");
@@ -68,7 +80,7 @@ function _click_handler(btn) {
     const decrypted = decryptedBytes.toString(CryptoJS.enc.Utf8);
 
     if (!decrypted) {
-      alert("Wrong password");
+      showCustomAlert("Incorrect password. Please try again with the correct one.");
       const isEncrypted = document.querySelector(".hugo-encryptor-cipher-text") !== null;
       const toc = document.querySelector(".toc-fixed");
 
@@ -92,7 +104,7 @@ function _click_handler(btn) {
       toc.style.display = "none";
     }
 
-    alert("Wrong password");
+    showCustomAlert("Incorrect password. Please try again with the correct one.");
     console.error(err);
   }
 }
