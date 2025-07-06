@@ -42,7 +42,6 @@
  data-password="123456"
  style="display: none;"
  >
- &lt;span style="display: none;">--- DON'T MODIFY THIS LINE ---&lt;/span>
  &lt;h1 id="you-cannot-see-me-unless-youve-got-the-password">You cannot see me unless you&amp;rsquo;ve got the password!&lt;/h1>
 &lt;p>This is the content you want to encrypt!&lt;/p>
 &lt;p>This is a test message. Just pure ASCII text.&lt;/p>
