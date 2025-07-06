@@ -12,30 +12,8 @@
 pre {
   overflow-x: auto;
   scrollbar-width: thin;              /* Firefox */
-  scrollbar-color: #545556 #1e293b;   /* Firefox: màu thanh + track */
+  scrollbar-color: #a4a5a7 #1e293b;   /* Firefox: màu thanh + track */
 }
-
-/* WebKit (Chrome, Safari, Edge) */
-pre::-webkit-scrollbar {
-  height: 6px;                         /* Chiều cao thanh ngang */
-}
-
-pre::-webkit-scrollbar-track {
-  background: #1e293b;                 /* Màu nền thanh track */
-  border-radius: 10px;
-}
-
-pre::-webkit-scrollbar-thumb {
-  background-color: #545556;           /* Màu thanh kéo */
-  border-radius: 10px;
-  border: 2px solid transparent;       /* tạo hiệu ứng padding */
-  background-clip: content-box;
-}
-
-pre::-webkit-scrollbar-thumb:hover {
-  background-color: #545556;           /* Hover effect */
-}
-
 
 img{
   width: 100%;
