@@ -62,6 +62,7 @@ cd CyberMonoX
 Make sure Hugo is installed:
 
 ```bash
+npm install
 hugo version
 ```
 
