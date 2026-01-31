@@ -18,7 +18,7 @@ relativeURLs = true
 
 [markup]
   [markup.highlight]
-    noClasses = false
-    style = "github-dark"
+    style = "monokai"
+    noClasses = true
 
     

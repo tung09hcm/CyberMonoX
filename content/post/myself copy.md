@@ -1,11 +1,11 @@
 +++
-title = 'Table of content'
+title = 'TyC Language'
 date = 2025-06-12T23:36:00+07:00
-description = "An in-depth introduction of my journey as a third-year software developer at Ho Chi Minh University of Technology ddddddddddddddddddddddddddddddddddddddddddddddddddddddd dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+description = "My Principles of Programming Language Assignment"
 image = "/images/sadrobot.jpg"
-categories = ["general","general1","general2","general3","general4","general5","general6","general7","general8","general9","genreal100"]
-authors = ["tung09hcm", "tien0246"]
-avatar = ["/images/hecker.jpg", "/images/doraemon.jpg"]
+categories = ["PPL"]
+authors = ["tung09hcm"]
+avatar = ["/images/hecker.jpg"]
 +++
 
 
@@ -45,7 +45,7 @@ The entry point of a TyC program is a function named `main` that takes no parame
 
 A function declaration has the following form:
 
-```tyc
+```c
 <return_type> <identifier>(<parameter_list>) {
     <statement_list>
 }
@@ -59,7 +59,7 @@ Where:
 
 A parameter declaration has the form:
 
-```tyc
+```c
 <type> <identifier>
 ```
 
@@ -71,7 +71,7 @@ The `<statement_list>` will be described in [Statements](#statements).
 
 #### Example
 
-```tyc
+```c
 int add(int x, int y) {
     return x + y;
 }
@@ -86,7 +86,7 @@ void main() {
 
 When the return type is omitted, it is inferred from the return statements in the function:
 
-```tyc
+```c
 // Return type inferred as int
 add(int x, int y) {
     return x + y;
@@ -125,7 +125,7 @@ This definition of lines can be used to determine the line numbers produced by a
 There are two types of comment in TyC: block and line. A block comment starts with `"/*"` and ignores all characters (except EOF) until it reaches `"*/"`. A line comment ignores all characters from `"//"` to the end of the current line, i.e., when reaching end of line or end of file.
 
 For example:
-```tyc
+```c
 /* This is a block comment, that
 may span in many lines*/
 auto x = 5; //this is a line comment
@@ -137,7 +137,7 @@ The following rules are enforced in TyC:
 
 For example:
 
-```tyc
+```c
 /* This is a block comment so // has no meaning here */
 //This is a line comment so /* has no meaning here
 ```
@@ -246,7 +246,7 @@ It is a compile-time error for:
 - An illegal escape sequence to appear (any backslash followed by a character that is not one of the supported escape characters: `b`, `f`, `r`, `n`, `t`, `"`, `\`).
 
 The following are valid examples of string literals:
-```tyc
+```c
 "This is a string containing tab \t"
 "He asked me: \"Where is John?\""
 ""
@@ -292,7 +292,7 @@ The keyword `struct` is used to define a composite data type that groups togethe
 
 A struct declaration has the following form:
 
-```tyc
+```c
 struct <identifier> {
     <type1> <member1>;
     <type2> <member2>;
@@ -315,7 +315,7 @@ Where:
 - Struct members can be of primitive types (`int`, `float`, `string`) or other struct types (that are declared before use)
 
 For example:
-```tyc
+```c
 struct Empty {};  // Valid: empty struct with no members
 
 struct Point {
@@ -334,7 +334,7 @@ struct Person {
 
 A struct variable can be declared using the struct name as the type:
 
-```tyc
+```c
 <struct_name> <identifier>;                    // without initialization
 <struct_name> <identifier> = {<member_list>};  // with initialization
 ```
@@ -357,7 +357,7 @@ Where:
 - If a struct variable is declared without initialization, all its members have undefined values until assigned
 
 For example:
-```tyc
+```c
 Point p1;                      // uninitialized
 Point p2 = {10, 20};          // initialized: x=10, y=20
 
@@ -369,12 +369,12 @@ Person person2 = {"John", 25, 1.75};  // initialized: name="John", age=25, heigh
 
 Struct members are accessed using the dot (`.`) operator:
 
-```tyc
+```c
 <struct_variable>.<member_name>
 ```
 
 For example:
-```tyc
+```c
 Point p = {10, 20};
 p.x = 30;           // assign to member x
 auto x_coord = p.x; // read member x
@@ -390,7 +390,7 @@ p.x++;              // increment member x (parsed as (p.x)++)
 - **Member Access**: The dot (`.`) operator is used to access struct members.
 
 For example:
-```tyc
+```c
 Point p1 = {10, 20};
 Point p2;
 p2 = p1;        // Copy all members: p2.x = 10, p2.y = 20
@@ -408,23 +408,23 @@ TyC supports two ways to declare variables:
 #### Variable Declaration Forms
 
 **With `auto` and initialization (type inference):**
-```tyc
+```c
 auto <identifier> = <expression>;
 ```
 
 **With `auto` without initialization:**
-```tyc
+```c
 auto <identifier>;
 ```
 Note: When using `auto` without initialization, the variable's type must be determined from subsequent assignments or usages. However, if the variable is used before being assigned, an error occurs.
 
 **With explicit type and initialization:**
-```tyc
+```c
 <type> <identifier> = <expression>;
 ```
 
 **With explicit type without initialization:**
-```tyc
+```c
 <type> <identifier>;
 ```
 
@@ -432,7 +432,7 @@ Where `<type>` is one of: `int`, `float`, `string`, or a struct type name
 
 #### Examples
 
-```tyc
+```c
 // With auto and initialization
 auto x = 10;           // x is int (inferred)
 auto y = 3.14;         // y is float (inferred)
@@ -525,7 +525,7 @@ The operand must be of **int** type. Float values cannot be used with increment/
 
 A **function call** is an expression that invokes a function. It has the form:
 
-```tyc
+```c
 <identifier>(<argument_list>)
 ```
 
@@ -535,13 +535,13 @@ where `<argument_list>` is a comma-separated list of expressions (or empty). The
 
 An **assignment expression** assigns a value to a variable and can be used as an expression. It has the form:
 
-```tyc
+```c
 <identifier> = <expression>
 ```
 
 or
 
-```tyc
+```c
 <member_access> = <expression>
 ```
 
@@ -582,13 +582,13 @@ A statement, which does not return anything (except return statement), indicates
 A **variable declaration** declares a variable. The initialization expression is optional:
 
 **With type inference (using `auto`):**
-```tyc
+```c
 auto <identifier> = <expression>;    // with initialization
 auto <identifier>;                    // without initialization
 ```
 
 **With explicit type:**
-```tyc
+```c
 <type> <identifier> = <expression>;  // with initialization
 <type> <identifier>;                  // without initialization
 ```
@@ -602,7 +602,7 @@ Where `<type>` is one of: `int`, `float`, `string`, or a struct type name
 - When using explicit type without initialization: the variable has the explicitly declared type
 
 For example:
-```tyc
+```c
 // With auto and initialization
 auto x = 10;           // x is int (inferred)
 auto y = 3.14;         // y is float (inferred)
@@ -629,7 +629,7 @@ string t;
 A block statement begins with the left brace `{` and ends with the right brace `}`. Between the two braces, there may be a list of variable declarations and statements.
 
 For example:
-```tyc
+```c
 {
     auto x = 10;
     auto y = 20;
@@ -641,13 +641,13 @@ For example:
 ### If Statement
 
 The **if statement** conditionally executes one of two statements based on the value of an expression. The form of an if statement is:  
-```tyc
+```c
 if (<expression>) <statement>
 ```
 
 or
 
-```tyc
+```c
 if (<expression>) <statement> else <statement>
 ```
 
@@ -656,7 +656,7 @@ where `<expression>` evaluates to an **int** value (0 is false, non-zero is true
 When nested if statements are used, an `else` clause is always associated with the nearest (innermost) `if` statement that does not already have an `else` clause. For example, in `if (x) if (y) a; else b;`, the `else` is associated with `if (y)`, not `if (x)`.
 
 The following is an example of an if statement:
-```tyc
+```c
 if (flag) {
     printInt(1);
 } else {
@@ -667,14 +667,14 @@ if (flag) {
 ### While Statement
 
 The **while statement** allows repetitive execution of one or more statements. A while statement executes a loop while a condition is true. While statements take the following form:  
-```tyc
+```c
 while (<expression>) <statement>
 ```
 
 The `<expression>` must evaluate to an **int** value (0 is false, non-zero is true). The `<statement>` is executed repeatedly as long as the expression evaluates to non-zero.
 
 For example:
-```tyc
+```c
 auto i = 0;
 while (i < 10) {
     printInt(i);
@@ -685,7 +685,7 @@ while (i < 10) {
 ### For Statement
 
 The **for statement** allows repetitive execution of one or more statements. For statements take the following form:  
-```tyc
+```c
 for (<init>; <condition>; <update>) <statement>
 ```
 
@@ -695,7 +695,7 @@ Where:
 - `<update>` is an assignment, increment, or decrement (optional)
 
 For example:
-```tyc
+```c
 for (auto i = 0; i < 10; ++i) {
     printInt(i);
 }
@@ -704,7 +704,7 @@ for (auto i = 0; i < 10; ++i) {
 ### Switch Statement
 
 The **switch statement** allows selection among multiple statements based on the value of an expression. Switch statements take the following form:  
-```tyc
+```c
 switch (<expression>) {
     case <case_expression>:
         <statement_list>
@@ -733,7 +733,7 @@ Where:
 **Important:** In TyC, switch statements follow C-style fall-through behavior. Execution will fall through to subsequent cases unless explicitly terminated with a `break` statement. You can use multiple case labels for the same code block to handle multiple values.
 
 For example:
-```tyc
+```c
 auto day = 2;
 switch (day) {
     case 1:
@@ -797,7 +797,7 @@ An **expression statement** is an expression followed by a semicolon. Expression
 An assignment expression can be used as an expression statement. When used as a statement, the assignment performs the side effect of updating the variable's value. The type of the value returned by the expression must match the type of the variable being assigned.
 
 For example:
-```tyc
+```c
 printInt(x);      // function call expression statement
 x = 5;            // assignment expression statement
 x = x + 1;        // assignment expression statement
@@ -829,7 +829,7 @@ Literals have inherent types:
 - The type is inferred from the initialization expression
 - The variable's type is the type of the initialization expression
 
-```tyc
+```c
 auto x = 10;           // x: int (from integer literal)
 auto y = 3.14;         // y: float (from float literal)
 auto msg = "hello";    // msg: string (from string literal)
@@ -845,7 +845,7 @@ auto z = x + y;        // z: float (from expression result type)
   - If first usage is as a return value: type is determined by the function return type
 - If the variable is used in a context where its type cannot be determined, a semantic error occurs
 
-```tyc
+```c
 auto a;                // type unknown initially
 a = 10;                // a: int (inferred from assignment - first usage)
 auto b;
@@ -867,7 +867,7 @@ printInt(z);           // Now z is int, so printInt can be used
 - The variable's type is the explicitly declared type
 - The type of the initialization expression must match the declared type (type checking required)
 
-```tyc
+```c
 int x = 10;            // x: int (explicit)
 float y = 3.14;        // y: float (explicit)
 string s = "hello";    // s: string (explicit)
@@ -878,7 +878,7 @@ int z = x + 5;         // z: int (explicit, expression must evaluate to int)
 - The variable's type is the explicitly declared type
 - The variable has an undefined value until assigned
 
-```tyc
+```c
 int a;                 // a: int (explicit)
 float b;               // b: float (explicit)
 string c;              // c: string (explicit)
@@ -999,7 +999,7 @@ The type of an expression is inferred from its components:
 
 ### Type Inference Examples
 
-```tyc
+```c
 // Rule 2.1: auto with initialization
 auto x = 10;              // x: int (from integer literal)
 auto y = 20;              // y: int (from integer literal)
@@ -1095,7 +1095,7 @@ To perform input and output operations, TyC provides the following built-in func
 
 ### Example 1: Hello World
 
-```tyc
+```c
 void main() {
     printString("Hello, World!");
 }
@@ -1103,7 +1103,7 @@ void main() {
 
 ### Example 2: Simple Calculator
 
-```tyc
+```c
 int add(int x, int y) {
     return x + y;
 }
@@ -1126,7 +1126,7 @@ void main() {
 
 ### Example 3: Loop with Conditions
 
-```tyc
+```c
 void main() {
     auto n = readInt();
     auto i = 0;
@@ -1146,7 +1146,7 @@ void main() {
 
 ### Example 4: Factorial Function
 
-```tyc
+```c
 int factorial(int n) {
     if (n <= 1) {
         return 1;
@@ -1164,7 +1164,7 @@ void main() {
 
 ### Example 5: Variable Declaration with Optional Initialization
 
-```tyc
+```c
 void main() {
     // With auto and initialization
     auto x = readInt();
@@ -1197,7 +1197,7 @@ void main() {
 
 ### Example 6: Struct Usage
 
-```tyc
+```c
 struct Point {
     int x;
     int y;

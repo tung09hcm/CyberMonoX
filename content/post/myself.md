@@ -3,7 +3,7 @@ title = 'Password post'
 date = 2025-06-12T23:36:00+07:00
 description = "An in-depth introduction of my journey as a third-year software developer at Ho Chi Minh University of Technology"
 image = "/images/sadrobot.jpg"
-categories = ["general","general1","general2","general3"]
+categories = ["general"]
 authors = ["tung09hcm", "tien0246"]
 avatar = ["/images/hecker.jpg", "/images/doraemon.jpg"]
 +++
