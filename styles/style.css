@@ -1,15 +1,16 @@
 :root {
-  --bg: #1D2D3E;
+  --bg: #1c1c20;
   --bgSoft: #a2d2ff;
   --textItem: #000000;
-  --text: #a2d2ff;
-  --textSoft: #white;
+  --text: white;
+  --textSoft: white;
   --navbar: #1d2d3e;
   --listItemBorder: rgba(255, 255, 255, 0.24);
   --tocHover: white;
   --buttonHover: white;
+  --title: #a2d2ff;
 }
-pre {
+/* pre {
   border-radius: 10px;
   overflow-x: auto; 
   overflow-y: auto; 
@@ -19,9 +20,9 @@ pre {
   scrollbar-color: #a4a5a7 #1e293b;
 }
 
-/* Chrome, Safari scrollbar */
+
 pre::-webkit-scrollbar {
-  height: 15px; /* 👈 Bật lại thanh ngang */
+  height: 15px; 
 }
 pre::-webkit-scrollbar-thumb {
   background-color: #a4a5a7;
@@ -29,7 +30,8 @@ pre::-webkit-scrollbar-thumb {
 }
 pre::-webkit-scrollbar-track {
   background-color: #1e293b;
-}
+} 
+*/
 
 
 
@@ -78,7 +80,16 @@ body.light{
   --listItemBorder: #1D2D3E;
   --tocHover: #a2d2ff;
   --buttonHover: #465a6c;
+  --title: black;
 }
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 12px;  
+}
+
 .listItemTitle__name {
   font-family: 'JetBrains Mono', monospace;
   font-weight: bold;
@@ -209,6 +220,9 @@ a {
 }
 
 h2, h3, h4, h5, h6 {
+  font-weight: 1000;
+  font-style: italic;
+  color: var(--title);
   scroll-margin-top: 100px; /* Điều chỉnh theo chiều cao navbar cố định */
 }
 
@@ -571,11 +585,11 @@ h2, h3, h4, h5, h6 {
   object-fit: cover;
 }
 
-.singleContent pre {
+/* .singleContent pre {
   width: 100%;
   overflow-x: scroll;
   padding: 20px;
-}
+} */
 
 .singleRightBar {
   flex: 1;
@@ -829,4 +843,25 @@ h2, h3, h4, h5, h6 {
   .modal-box{
     width: 70%;
   }
+}
+/* pre {
+  background-color: #1e1e1e;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+code {
+  background-color: #1e1e1e;
+  color: #f8f8f2;
+  padding: 2px 6px;
+  border-radius: 4px;
+} */
+.highlight pre,
+pre.chroma {
+  background-color: #272822 !important; /* monokai */
+  color: #f8f8f2 !important;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
 }

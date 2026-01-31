@@ -19,8 +19,8 @@
 &lt;li>&lt;strong>Game Development&lt;/strong> using Unity and C#&lt;/li>
 &lt;/ul>
 &lt;p>I&amp;rsquo;m passionate about backend systems, scalable applications, and building full-stack solutions.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">greet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">):&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;Hello, &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">! Welcome to my blog.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">greet&lt;/span>(name):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">f&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Hello, &lt;/span>&lt;span style="color:#e6db74">{&lt;/span>name&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">! Welcome to my blog.&amp;#34;&lt;/span>)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="./images/whale.jpg" alt="title">&lt;/p></description></item><item><title>Password post</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself/</guid><description>&lt;div class="hugo-encryptor-container">
  &lt;h1>
  This content needs password 
@@ -47,7 +47,7 @@
 &lt;p>This is a test message. Just pure ASCII text.&lt;/p>
 
  &lt;/div>
-&lt;/div></description></item><item><title>Table of content</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself-copy/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself-copy/</guid><description>&lt;h1 id="tyc-programming-language-specification">TyC Programming Language Specification&lt;/h1>
+&lt;/div></description></item><item><title>TyC Language</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself-copy/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself-copy/</guid><description>&lt;h1 id="tyc-programming-language-specification">TyC Programming Language Specification&lt;/h1>
 &lt;p>&lt;strong>Version 1.0 - January 2026&lt;/strong>&lt;/p>
 &lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
 &lt;ol>
