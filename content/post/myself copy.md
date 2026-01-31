@@ -1,6 +1,6 @@
 +++
 title = 'TyC Language'
-date = 2025-06-12T23:36:00+07:00
+date = 2026-01-31T23:36:00+07:00
 description = "My Principles of Programming Language Assignment"
 image = "/images/sadrobot.jpg"
 categories = ["PPL"]
