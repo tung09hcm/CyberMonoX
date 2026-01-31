@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tung09hcm on tung09hcm blog</title><link>https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/</link><description>Recent content in Tung09hcm on tung09hcm blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 12 Jun 2025 23:36:00 +0700</lastBuildDate><atom:link href="https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Password post</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself/</guid><description>&lt;div class="hugo-encryptor-container">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tung09hcm on tung09hcm blog</title><link>https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/</link><description>Recent content in Tung09hcm on tung09hcm blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 31 Jan 2026 23:26:31 +0700</lastBuildDate><atom:link href="https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/index.xml" rel="self" type="application/rss+xml"/><item><title>TyC Language</title><link>https://tung09hcm.github.io/CyberMonoX/post/tyc/</link><pubDate>Sat, 31 Jan 2026 23:26:31 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/tyc/</guid><description>&lt;h1 id="tyc-programming-language-specification">TyC Programming Language Specification&lt;/h1>
+&lt;p>&lt;strong>Version 1.0 - January 2026&lt;/strong>&lt;/p>
+&lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="#introduction">Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#program-structure">Program Structure&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#lexical-structure">Lexical Structure&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#type-system">Type System&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#expressions">Expressions&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#statements">Statements&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#type-inference">Type Inference&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#scope-rules">Scope Rules&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#input-and-output">Input and Output&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#example-programs">Example Programs&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>&lt;strong>TyC&lt;/strong>, pronounced &amp;ldquo;type-see&amp;rdquo;, is a simple C-like programming language designed primarily for students practicing implementing a simple compiler. TyC features a complete type inference system with strict type checking where each operator has well-defined type requirements, making type checking straightforward while maintaining C-like syntax.&lt;/p></description></item><item><title>Password post</title><link>https://tung09hcm.github.io/CyberMonoX/post/myself/</link><pubDate>Thu, 12 Jun 2025 23:36:00 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/myself/</guid><description>&lt;div class="hugo-encryptor-container">
  &lt;h1>
  This content needs password 
  &lt;/h1>
