@@ -865,3 +865,20 @@ pre.chroma {
   border-radius: 10px;
   overflow-x: auto;
 }
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #444;
+  color: white;
+  opacity: 0.8;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+}
