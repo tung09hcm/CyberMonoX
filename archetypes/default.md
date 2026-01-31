@@ -4,6 +4,6 @@ date = {{ .Date }}
 description = ""
 image = ""
 categories = ["general"]
-authors = ["tien0246"]
-avatar = ["/images/doraemon.jpg"]
+authors = ["tung09hcm"]
+avatar = ["/images/hecker.jpg"]
 +++
