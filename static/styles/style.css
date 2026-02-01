@@ -881,3 +881,7 @@ pre.chroma {
 .copy-btn:hover {
   opacity: 1;
 }
+a {
+  color: #a2d2ff;        
+  /* text-decoration: underline;   */
+}
