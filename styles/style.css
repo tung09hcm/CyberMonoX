@@ -850,13 +850,12 @@ h2, h3, h4, h5, h6 {
   border-radius: 8px;
   overflow-x: auto;
 }
-
+*/
 code {
-  background-color: #1e1e1e;
-  color: #f8f8f2;
+  color: #f5b607;
   padding: 2px 6px;
   border-radius: 4px;
-} */
+} 
 .highlight pre,
 pre.chroma {
   background-color: #272822 !important; /* monokai */
