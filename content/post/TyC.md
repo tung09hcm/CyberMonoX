@@ -2,7 +2,7 @@
 title = 'TyC Language'
 date = 2026-01-31T23:26:31+07:00
 description = "My Principles of Programming Language Assignment"
-image = "/images/sadrobot.jpg"
+image = "/images/ppl.png"
 categories = ["PPL"]
 authors = ["tung09hcm"]
 avatar = ["/images/hecker.jpg"]
