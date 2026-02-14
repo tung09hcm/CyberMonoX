@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tung09hcm on tung09hcm blog</title><link>https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/</link><description>Recent content in Tung09hcm on tung09hcm blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 31 Jan 2026 23:26:31 +0700</lastBuildDate><atom:link href="https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/index.xml" rel="self" type="application/rss+xml"/><item><title>TyC Language</title><link>https://tung09hcm.github.io/CyberMonoX/post/tyc/</link><pubDate>Sat, 31 Jan 2026 23:26:31 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/tyc/</guid><description>&lt;h1 id="tyc-programming-language-specification">TyC Programming Language Specification&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tung09hcm on tung09hcm blog</title><link>https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/</link><description>Recent content in Tung09hcm on tung09hcm blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 14 Feb 2026 11:31:32 +0700</lastBuildDate><atom:link href="https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Poker_Game_Tutorial</title><link>https://tung09hcm.github.io/CyberMonoX/post/poker_game_tutorial/</link><pubDate>Sat, 14 Feb 2026 11:31:32 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/poker_game_tutorial/</guid><description>&lt;h1 id="texas-holdem-poker-game---complete-documentation--tutorial">Texas Hold&amp;rsquo;em Poker Game - Complete Documentation &amp;amp; Tutorial&lt;/h1>
+&lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="#game-rules--mechanics">Game Rules &amp;amp; Mechanics&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#architecture-overview">Architecture Overview&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#prerequisites">Prerequisites&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#step-by-step-tutorial">Step-by-Step Tutorial&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#project-structure">Project Structure&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#code-implementation">Code Implementation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#deployment-guide">Deployment Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#testing--debugging">Testing &amp;amp; Debugging&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="game-rules--mechanics">Game Rules &amp;amp; Mechanics&lt;/h2>
+&lt;h3 id="overview">Overview&lt;/h3>
+&lt;p>Texas Hold&amp;rsquo;em is the most popular variant of poker. Each player receives 2 private cards (hole cards), and 5 community cards are dealt face-up on the table. Players make the best 5-card hand using any combination of their 2 hole cards and the 5 community cards.&lt;/p></description></item><item><title>TyC Language</title><link>https://tung09hcm.github.io/CyberMonoX/post/tyc/</link><pubDate>Sat, 31 Jan 2026 23:26:31 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/tyc/</guid><description>&lt;h1 id="tyc-programming-language-specification">TyC Programming Language Specification&lt;/h1>
 &lt;p>&lt;strong>Version 1.0 - January 2026&lt;/strong>&lt;/p>
 &lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
 &lt;ol>
