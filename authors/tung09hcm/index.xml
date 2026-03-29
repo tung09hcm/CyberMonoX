@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tung09hcm on tung09hcm blog</title><link>https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/</link><description>Recent content in Tung09hcm on tung09hcm blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 14 Feb 2026 11:31:32 +0700</lastBuildDate><atom:link href="https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Poker_Game_Tutorial</title><link>https://tung09hcm.github.io/CyberMonoX/post/poker_game_tutorial/</link><pubDate>Sat, 14 Feb 2026 11:31:32 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/poker_game_tutorial/</guid><description>&lt;h1 id="texas-holdem-poker-game---complete-documentation--tutorial">Texas Hold&amp;rsquo;em Poker Game - Complete Documentation &amp;amp; Tutorial&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tung09hcm on tung09hcm blog</title><link>https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/</link><description>Recent content in Tung09hcm on tung09hcm blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 29 Mar 2026 23:01:37 +0700</lastBuildDate><atom:link href="https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/index.xml" rel="self" type="application/rss+xml"/><item><title>Nest</title><link>https://tung09hcm.github.io/CyberMonoX/post/nest/</link><pubDate>Sun, 29 Mar 2026 23:01:37 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/nest/</guid><description>&lt;h2 id="mục-lục">MỤC LỤC&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="#1-nestfactory-l%C3%A0-g%C3%AC">NestFactory là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#2-res--khi-n%C3%A0o-n%C3%AAn-v%C3%A0-kh%C3%B4ng-n%C3%AAn-d%C3%B9ng">@Res — khi nào nên và không nên dùng&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#3-response-status-code-m%E1%BA%B7c-%C4%91%E1%BB%8Bnh-200-201">Response status code mặc định (200, 201)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#4-httpcode-l%C3%A0-g%C3%AC">@HttpCode là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#5-observable-stream-l%C3%A0-g%C3%AC--t%E1%BA%A1i-sao-asyncawait-tr%E1%BA%A3-v%E1%BB%81-%C4%91%C6%B0%E1%BB%A3c">Observable stream là gì — tại sao async/await trả về được?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#6-providers-l%C3%A0-g%C3%AC">Providers là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#7-injectable-v%C3%A0-inject-l%C3%A0-g%C3%AC">@Injectable và @Inject là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#8-dependency-injection-trong-nestjs">Dependency Injection trong NestJS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#9-dynamic-modules-l%C3%A0-g%C3%AC">Dynamic Modules là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#10-middleware-l%C3%A0-g%C3%AC">Middleware là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#11-middlewareconsumer-l%C3%A0-g%C3%AC">MiddlewareConsumer là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#12-exception-filter-l%C3%A0-g%C3%AC">Exception Filter là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#13-binding-filter-l%C3%A0-g%C3%AC-catch-v%C3%A0-usefilters">Binding Filter là gì? @Catch và @UseFilters&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#14-pipes-l%C3%A0-g%C3%AC--d%C3%B9ng-cho-g%C3%AC">Pipes là gì — dùng cho gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#15-t%E1%BA%A1i-sao-d%C3%B9ng-guards-m%C3%A0-kh%C3%B4ng-d%C3%B9ng-middleware">Tại sao dùng Guards mà không dùng Middleware?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#16-useguardsnew-rolesguard-kh%C3%A1c-g%C3%AC-useguardsrolesguard">@UseGuards(new RolesGuard()) khác gì @UseGuards(RolesGuard)?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#17-roles-l%C3%A0-g%C3%AC-c%C3%A1c-level-c%E1%BB%A7a-guard">@Roles là gì? Các level của Guard&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#18-aop-l%C3%A0-g%C3%AC-interceptor-l%C3%A0m-g%C3%AC">AOP là gì? Interceptor làm gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#19-injection-scope">Injection Scope&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#20-4-t%C3%ADnh-ch%E1%BA%A5t-c%E1%BB%A7a-oop">4 tính chất của OOP&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#21-solid-l%C3%A0-g%C3%AC">SOLID là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#22-typeorm-v%C3%A0-prisma--kh%C3%A1c-g%C3%AC-nhau">TypeORM và Prisma — khác gì nhau?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#23-postgresql-v%C3%A0-mysql--kh%C3%A1c-g%C3%AC-nhau-khi-n%C3%A0o-d%C3%B9ng-c%C3%A1i-n%C3%A0o">PostgreSQL và MySQL — khác gì nhau, khi nào dùng cái nào?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#24-callback-promise-asyncawait--ph%C3%A2n-bi%E1%BB%87t-v%C3%A0-x%E1%BB%AD-l%C3%BD-l%E1%BB%97i">Callback, Promise, Async/Await — phân biệt và xử lý lỗi&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#25-event-loop-single-thread-non-blocking-io-callback-queue">Event Loop, Single Thread, Non-blocking I/O, Callback Queue&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#26-acid-l%C3%A0-g%C3%AC">ACID là gì?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#27-thi%E1%BA%BFt-k%E1%BA%BF-h%E1%BB%87-th%E1%BB%91ng-v%E1%BB%9Bi-websocket-rabbitmq-redis-microservice">Thiết kế hệ thống với WebSocket, RabbitMQ, Redis, Microservice&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#28-n1-problem-l%C3%A0-g%C3%AC-v%C3%A0-c%C3%A1ch-gi%E1%BA%A3i-quy%E1%BA%BFt">N+1 Problem là gì và cách giải quyết&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#29-chuy%E1%BB%87n-g%C3%AC-x%E1%BA%A3y-ra-khi-nh%E1%BA%ADp-url-l%C3%AAn-browser">Chuyện gì xảy ra khi nhập URL lên browser?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#30-ki%E1%BA%BFn-tr%C3%BAc-docker--container-image-docker-compose">Kiến trúc Docker — Container, Image, Docker Compose&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#31-c%C3%A1ch-gi%E1%BA%A3i-quy%E1%BA%BFt-khi-database-query-ch%E1%BA%ADm">Cách giải quyết khi database query chậm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#32-cqrs-pattern-trong-nestjs">CQRS Pattern trong NestJS&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="1-nestfactory-là-gì">1. NestFactory là gì?&lt;/h2>
+&lt;p>&lt;code>NestFactory&lt;/code> là class trung tâm để khởi tạo toàn bộ ứng dụng NestJS. Khi bạn gọi &lt;code>NestFactory.create(AppModule)&lt;/code>, NestJS sẽ thực hiện một chuỗi công việc rất phức tạp bên dưới: nó khởi tạo IoC container (Inversion of Control container), quét toàn bộ metadata được gắn trên các class thông qua decorators (nhờ thư viện &lt;code>reflect-metadata&lt;/code>), xây dựng dependency graph cho tất cả providers, giải quyết circular dependency nếu có, và cuối cùng tạo ra một instance của HTTP server (Express hoặc Fastify tùy config).&lt;/p></description></item><item><title>Poker_Game_Tutorial</title><link>https://tung09hcm.github.io/CyberMonoX/post/poker_game_tutorial/</link><pubDate>Sat, 14 Feb 2026 11:31:32 +0700</pubDate><guid>https://tung09hcm.github.io/CyberMonoX/post/poker_game_tutorial/</guid><description>&lt;h1 id="texas-holdem-poker-game---complete-documentation--tutorial">Texas Hold&amp;rsquo;em Poker Game - Complete Documentation &amp;amp; Tutorial&lt;/h1>
 &lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
 &lt;ol>
 &lt;li>&lt;a href="#game-rules--mechanics">Game Rules &amp;amp; Mechanics&lt;/a>&lt;/li>
