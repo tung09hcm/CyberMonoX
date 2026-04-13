@@ -1,0 +1,609 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="The fastest blog"><link rel=stylesheet href=../../styles/style.css><link rel=icon href=../../images/favicon.png><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel=stylesheet><link rel=stylesheet href=../../styles/syntax.css><title>Semantic_checking</title></head><body><div id=customAlertOverlay class="modal-overlay hidden"><div class=modal-box><p id=customAlertMessage class=message>Thông báo</p><button onclick=closeCustomAlert()>OK</button></div></div><div class=toc-fixed><h2>Table of Contents</h2><br><nav id=TableOfContents><ul><li><a href=#tổng-quan>Tổng Quan</a></li><li><a href=#tóm-tắt-các-loại-lỗi>Tóm Tắt Các Loại Lỗi</a></li><li><a href=#đặc-tả-chi-tiết-từng-lỗi>Đặc Tả Chi Tiết Từng Lỗi</a><ul><li><a href=#1-redeclared-khai-báo-lại>1. Redeclared (Khai Báo Lại)</a></li><li><a href=#2-undeclaredidentifier-định-danh-chưa-khai-báo>2. UndeclaredIdentifier (Định Danh Chưa Khai Báo)</a></li><li><a href=#3-undeclaredfunction-hàm-chưa-khai-báo>3. UndeclaredFunction (Hàm Chưa Khai Báo)</a></li><li><a href=#4-undeclaredstruct-struct-chưa-khai-báo>4. UndeclaredStruct (Struct Chưa Khai Báo)</a></li><li><a href=#5-typecannotbeinferred-không-thể-suy-luận-kiểu>5. TypeCannotBeInferred (Không Thể Suy Luận Kiểu)</a></li><li><a href=#6-typemismatchinstatement-không-khớp-kiểu-trong-câu-lệnh>6. TypeMismatchInStatement (Không Khớp Kiểu Trong Câu Lệnh)</a></li><li><a href=#7-typemismatchinexpression-không-khớp-kiểu-trong-biểu-thức>7. TypeMismatchInExpression (Không Khớp Kiểu Trong Biểu Thức)</a></li><li><a href=#8-mustinloop-breakcontinue-phải-trong-vòng-lặp>8. MustInLoop (Break/Continue Phải Trong Vòng Lặp)</a></li></ul></li><li><a href=#hướng-dẫn-triển-khai>Hướng Dẫn Triển Khai</a><ul><li><a href=#ưu-tiên-phát-hiện-lỗi>Ưu Tiên Phát Hiện Lỗi</a></li><li><a href=#quản-lý-phạm-vi>Quản Lý Phạm Vi</a></li><li><a href=#hệ-thống-suy-luận-kiểu>Hệ Thống Suy Luận Kiểu</a></li><li><a href=#quy-tắc-hệ-thống-kiểu>Quy Tắc Hệ Thống Kiểu</a></li><li><a href=#hàm-built-in>Hàm Built-in</a></li><li><a href=#điểm-vào-chương-trình>Điểm Vào Chương Trình</a></li></ul></li></ul></nav></div><div class=container><nav class=navbar><div class=logo><a href=../../>tung09hcm</a></div><div class=links><a href=../../post>Posts</a>
+<a href=../../about/>About</a>
+<a href=../../categories>Tags</a><div class=toggle><svg width="20" height="20" viewBox="-.14 0 20.03 20.03" fill="#1D2D3E" class="icon-moon"><g id="moon-alt" transform="translate(-2.25 -2)"><path id="secondary" fill="#1D2D3E" d="M21 12A9 9 0 013.25 14.13 6.9 6.9.0 008 16 7 7 0 0011.61 3H12a9 9 0 019 9z"/></g></svg>
+<svg width="20" height="20" viewBox="0 0 20 20" fill="#000" class="icon-sun"><g id="sun" transform="translate(-2 -2)"><circle id="secondary" fill="#1D2D3E" cx="4" cy="4" r="4" transform="translate(8 8)"/><path id="primary" d="M12 3V4M5.64 5.64l.7.7M3 12H4m1.64 6.36.7-.7M12 21V20m6.36-1.64-.7-.7M21 12H20M18.36 5.64l-.7.7M12 8a4 4 0 104 4A4 4 0 0012 8z" fill="none" stroke="#1D2D3E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g></svg></div></div></nav><div class=main-wrapper><img src=ZgotmplZ alt=Semantic_checking class=singleHeadImg><div class=singleHead><div class=singleHeadTexts><h1 class=singleHeadTitle>Semantic_checking</h1><time>Apr 13, 2026</time><p class=singleHeadDesc></p><div class=singleHeadDetail><img src=../../images/hecker.jpg loading=lazy alt class=singleAvatar>
+<span><a href=https://tung09hcm.github.io/CyberMonoX/authors/tung09hcm/>tung09hcm</a></span></div><div class=singleHeadDetail><a href=https://tung09hcm.github.io/CyberMonoX/categories/general/ class=singleCategory>#general</a></div></div></div><div class=singleBottom><div class=singleContent><h1 id=tyc-programming-language---ràng-buộc-ngữ-nghĩa-và-các-loại-lỗi>TyC Programming Language - Ràng Buộc Ngữ Nghĩa và Các Loại Lỗi</h1><p><strong>Tài liệu Tham Chiếu Phân Tích Ngữ Nghĩa Tĩnh</strong>
+<strong>Phiên bản 1.0 - Tháng 1 năm 2026</strong></p><hr><h2 id=tổng-quan>Tổng Quan</h2><p>Tài liệu này cung cấp tài liệu tham chiếu đầy đủ cho tất cả các ràng buộc ngữ nghĩa và loại lỗi mà bộ phân tích ngữ nghĩa tĩnh của TyC phải kiểm tra. TyC là ngôn ngữ lập trình thủ tục với khả năng suy luận kiểu hoàn chỉnh, kiểu struct, và kiểm tra kiểu nghiêm ngặt — mỗi toán tử có yêu cầu kiểu được định nghĩa rõ ràng.</p><hr><h2 id=tóm-tắt-các-loại-lỗi>Tóm Tắt Các Loại Lỗi</h2><p>Bộ kiểm tra ngữ nghĩa tĩnh của TyC phải phát hiện và báo cáo các loại lỗi sau:</p><ol><li><strong>Redeclared</strong> — Biến, hàm, struct, tham số, hoặc thành viên struct được khai báo nhiều lần (hoặc một biến cục bộ dùng lại tên tham số trong cùng hàm)</li><li><strong>UndeclaredIdentifier</strong> — Sử dụng biến hoặc tham số chưa được khai báo</li><li><strong>UndeclaredFunction</strong> — Gọi hàm chưa được khai báo</li><li><strong>UndeclaredStruct</strong> — Sử dụng kiểu struct chưa được khai báo</li><li><strong>TypeCannotBeInferred</strong> — <code>auto</code> không có kiểu xác định được; thông báo lỗi là <code>TypeCannotBeInferred(&lt;ctx>)</code> trong đó <code>&lt;ctx></code> là một AST node (<code>str</code> theo <code>src/utils/nodes.py</code>)</li><li><strong>TypeMismatchInStatement</strong> — Không tương thích kiểu trong câu lệnh (if, while, for, return, phép gán)</li><li><strong>TypeMismatchInExpression</strong> — Không tương thích kiểu trong biểu thức (toán tử, lời gọi hàm, truy cập thành viên, struct literal so với kiểu struct kỳ vọng)</li><li><strong>MustInLoop</strong> — Câu lệnh break/continue nằm ngoài vòng lặp</li></ol><hr><h2 id=đặc-tả-chi-tiết-từng-lỗi>Đặc Tả Chi Tiết Từng Lỗi</h2><h3 id=1-redeclared-khai-báo-lại>1. Redeclared (Khai Báo Lại)</h3><p><strong>Quy tắc:</strong> Tất cả các khai báo phải là duy nhất trong phạm vi tương ứng theo đặc tả TyC.</p><p><strong>Ngoại lệ:</strong> <code>Redeclared(&lt;kind>, &lt;identifier>)</code></p><ul><li><code>&lt;kind></code>: Loại thực thể bị khai báo lại (<code>Variable</code>, <code>Function</code>, <code>Struct</code>, <code>Parameter</code>, <code>Member</code>)</li><li><code>&lt;identifier></code>: Tên của định danh bị khai báo lại</li></ul><p><strong>Quy tắc theo phạm vi:</strong></p><ul><li><strong>Global scope:</strong> Tên struct phải duy nhất trong tất cả các khai báo struct, tên hàm phải duy nhất trong tất cả các khai báo hàm (không có overloading). <strong>Tên kiểu struct và tên hàm dùng namespace riêng biệt:</strong> cùng một định danh có thể đặt tên cho cả struct lẫn hàm (ví dụ: <code>struct foo { ... };</code> và <code>int foo(int x, int y) { ... }</code> đều hợp lệ). Ngữ cảnh phân biệt — vị trí kiểu trong khai báo so với <code>(</code> trong lời gọi.</li><li><strong>Function scope:</strong> Các tham số thuộc phạm vi của hàm và hiển thị trong toàn bộ thân hàm. Tên tham số phải duy nhất trong cùng danh sách tham số. <strong>Không được khai báo biến cục bộ trùng tên với tham số ở bất kỳ đâu trong thân hàm</strong>, kể cả trong các khối <code>{ }</code> lồng nhau; điều này được báo là <code>Redeclared(Variable, &lt;name>)</code> (không phải shadowing). TyC không cho phép các khối bên trong che khuất tham số của hàm bao ngoài.</li><li><strong>Local scope (block):</strong> Biến phải có tên duy nhất trong cùng một khối.</li><li><strong>Shadowing:</strong> Biến trong các khối lồng nhau có thể che khuất <strong>biến cục bộ khác</strong> từ các khối bên ngoài trong cùng hàm, với điều kiện tuân theo quy tắc trên (tham số không thể bị che khuất).</li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Redeclared Struct trong global scope
+struct Point {
+    int x;
+    int y;
+};
+struct Point {  // Redeclared(Struct, Point)
+    int z;
+};
+
+// Lỗi: Redeclared Function trong global scope
+int add(int x, int y) {
+    return x + y;
+}
+int add(int a, int b) {  // Redeclared(Function, add) - không có function overloading
+    return a + b;
+}
+
+// Hợp lệ: cùng định danh cho struct và hàm (namespace global riêng biệt)
+struct foo {
+    int x;
+    int y;
+};
+int foo(int x, int y) {  // Không phải Redeclared: struct foo và function foo là khác nhau
+    return x + y;
+}
+
+// Lỗi: Redeclared Variable trong cùng khối
+void main() {
+    int count = 10;
+    int count = 20;  // Redeclared(Variable, count)
+}
+
+// Lỗi: Redeclared Parameter
+int calculate(int x, float y, int x) {  // Redeclared(Parameter, x)
+    return x + y;
+}
+
+// Lỗi: Biến cục bộ dùng lại tên tham số (cùng hàm; không cho phép kể cả trong khối lồng nhau)
+void func(int x) {
+    int x = 10;  // Redeclared(Variable, x)
+}
+
+// Lỗi: Tên thành viên struct trùng nhau trong cùng một struct
+struct Point {
+    int x;
+    int x;  // Redeclared(Member, x)
+};
+
+// Hợp lệ: Shadowing ở các phạm vi khác nhau
+void example() {
+    int value = 100;  // Biến hàm
+
+    {
+        int value = 200;  // Hợp lệ: che khuất biến hàm
+        {
+            int value = 300;  // Hợp lệ: che khuất biến khối
+        }
+    }
+}
+
+// Hợp lệ: Các phạm vi khác nhau (không có xung đột shadowing)
+void test() {
+    int x = 10;
+    {
+        int y = 20;  // Hợp lệ: tên biến khác nhau
+    }
+    int y = 30;  // Hợp lệ: y ở phạm vi ngoài không xung đột với y ở khối trong
+}
+</code></pre><hr><h3 id=2-undeclaredidentifier-định-danh-chưa-khai-báo>2. UndeclaredIdentifier (Định Danh Chưa Khai Báo)</h3><p><strong>Quy tắc:</strong> Tất cả biến và tham số phải được khai báo trước khi sử dụng.</p><p><strong>Ngoại lệ:</strong> <code>UndeclaredIdentifier(&lt;identifier>)</code></p><p><strong>Quy tắc giải quyết định danh:</strong></p><ul><li>Định danh được tra cứu từ phạm vi trong cùng ra ngoài</li><li>Biến phải được khai báo trước khi sử dụng trong cùng phạm vi hoặc phạm vi bao ngoài</li><li>Phần khởi tạo của biến được kiểm tra mà không có biến đó trong phạm vi (xem <strong><code>tyc_specification.md</code> § Scope Rules</strong>)</li><li>Tham số hiển thị trong toàn bộ thân hàm</li><li>TyC không hỗ trợ biến global (chỉ có khai báo hàm và struct ở cấp global)</li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Biến chưa khai báo
+void example() {
+    int result = undeclaredVar + 10;  // UndeclaredIdentifier(undeclaredVar)
+}
+
+// Lỗi: Dùng biến trước khi khai báo trong cùng phạm vi
+void test() {
+    int x = y + 5;  // UndeclaredIdentifier(y) - y dùng trước khi khai báo
+    int y = 10;
+}
+
+// Lỗi: Truy cập ngoài phạm vi
+void method1() {
+    int localVar = 42;
+}
+
+void method2() {
+    int value = localVar + 1;  // UndeclaredIdentifier(localVar) - phạm vi hàm khác
+}
+
+// Hợp lệ: Thứ tự khai báo đúng
+void valid() {
+    int x = 10;
+    int y = x + 5;  // Hợp lệ: x đã được khai báo trước
+}
+
+// Hợp lệ: Tham số hiển thị trong toàn hàm
+int calculate(int x, int y) {
+    int result = x + y;  // Hợp lệ: tham số x và y hiển thị
+    return result;
+}
+
+// Hợp lệ: Biến trong phạm vi bao ngoài
+void nested() {
+    int outer = 10;
+    {
+        int inner = outer + 5;  // Hợp lệ: outer ở phạm vi bao ngoài
+    }
+}
+</code></pre><hr><h3 id=3-undeclaredfunction-hàm-chưa-khai-báo>3. UndeclaredFunction (Hàm Chưa Khai Báo)</h3><p><strong>Quy tắc:</strong> Tất cả các hàm phải được khai báo trước khi sử dụng.</p><p><strong>Ngoại lệ:</strong> <code>UndeclaredFunction(&lt;function-name>)</code></p><p><strong>Quy tắc khai báo hàm:</strong></p><ul><li>Hàm có global scope</li><li>Hàm có thể được gọi từ bất kỳ đâu sau khi khai báo</li><li>Tên hàm phải duy nhất trong các hàm (không có function overloading); tên hàm có thể trùng với tên kiểu struct</li><li>Các hàm built-in (<code>readInt</code>, <code>readFloat</code>, <code>readString</code>, <code>printInt</code>, <code>printFloat</code>, <code>printString</code>) được khai báo ngầm định</li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Hàm chưa khai báo
+void main() {
+    int result = calculate(5, 3);  // UndeclaredFunction(calculate)
+}
+
+// Lỗi: Hàm được gọi trước khi khai báo
+void test() {
+    int value = add(10, 20);  // UndeclaredFunction(add) - nếu add được khai báo sau
+}
+
+int add(int x, int y) {
+    return x + y;
+}
+
+// Hợp lệ: Hàm khai báo trước khi dùng
+int multiply(int x, int y) {
+    return x * y;
+}
+
+void main() {
+    int result = multiply(5, 3);  // Hợp lệ: multiply đã được khai báo trước
+}
+
+// Hợp lệ: Hàm built-in
+void example() {
+    int x = readInt();        // Hợp lệ: hàm built-in
+    printInt(x);              // Hợp lệ: hàm built-in
+    float y = readFloat();    // Hợp lệ: hàm built-in
+    string s = readString();  // Hợp lệ: hàm built-in
+}
+</code></pre><hr><h3 id=4-undeclaredstruct-struct-chưa-khai-báo>4. UndeclaredStruct (Struct Chưa Khai Báo)</h3><p><strong>Quy tắc:</strong> Tất cả các kiểu struct phải được khai báo trước khi sử dụng.</p><p><strong>Ngoại lệ:</strong> <code>UndeclaredStruct(&lt;struct-name>)</code></p><p><strong>Quy tắc khai báo struct:</strong></p><ul><li>Struct có global scope</li><li>Kiểu struct có thể được dùng trong toàn chương trình sau khi khai báo</li><li>Tên struct phải duy nhất trong các kiểu struct (có thể trùng tên hàm — namespace riêng biệt)</li><li>Thành viên struct không dùng được <code>auto</code> — chỉ cho phép kiểu tường minh</li><li>Kiểu của thành viên không được là struct đang được khai báo (xem <strong><code>tyc_specification.md</code> § Struct Type</strong>)</li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Struct chưa khai báo
+void main() {
+    Point p;  // UndeclaredStruct(Point)
+}
+
+struct Point {
+    int x;
+    int y;
+};
+
+// Lỗi: Dùng kiểu struct trước khi khai báo
+void test() {
+    Person person;  // UndeclaredStruct(Person) - nếu Person khai báo sau
+}
+
+struct Person {
+    string name;
+    int age;
+};
+
+// Lỗi: Thành viên struct dùng kiểu struct chưa khai báo
+struct Address {
+    string street;
+    City city;  // UndeclaredStruct(City) - nếu City khai báo sau
+};
+
+struct City {
+    string name;
+};
+
+// Hợp lệ: Struct khai báo trước khi dùng
+struct Point {
+    int x;
+    int y;
+};
+
+void main() {
+    Point p1;           // Hợp lệ: Point đã khai báo trước
+    Point p2 = {10, 20}; // Hợp lệ: Point đã khai báo trước
+}
+
+// Hợp lệ: Thành viên struct dùng kiểu struct đã khai báo trước
+struct Point {
+    int x;
+    int y;
+};
+
+struct Address {
+    string street;
+    Point location;  // Hợp lệ: Point đã khai báo trước
+};
+</code></pre><hr><h3 id=5-typecannotbeinferred-không-thể-suy-luận-kiểu>5. TypeCannotBeInferred (Không Thể Suy Luận Kiểu)</h3><p><strong>Quy tắc:</strong> Mọi binding <code>auto</code> phải lấy được kiểu xác định từ phần khởi tạo hoặc từ lần sử dụng sau đó.</p><p><strong>Ngoại lệ:</strong> <code>TypeCannotBeInferred(&lt;ctx>)</code> — <code>&lt;ctx></code> là AST node mà bộ kiểm tra gắn vào trường hợp chưa giải quyết đầu tiên (định dạng <code>__str__</code> trong <code>src/utils/nodes.py</code>). Trong thực tế, đây là biểu thức hoặc câu lệnh đang kiểm tra (ví dụ: một binary op, một phép gán, một block sau các biến cục bộ, một <code>return</code>), không phải tên biến thuần túy.</p><p><strong>Suy luận:</strong> Có khởi tạo → từ biểu thức khởi tạo; không có khởi tạo → từ lần sử dụng đầu tiên có thể xác định kiểu. Nếu không được → lỗi này.</p><p><strong>Báo cáo:</strong> Một lỗi ngữ nghĩa mỗi lần chạy. Trong số các lỗi <code>TypeCannotBeInferred</code>, lỗi đầu tiên gặp trong quá trình duyệt ngữ nghĩa được báo cáo. Thứ tự toàn chương trình (lỗi đầu tiên theo duyệt, không sắp xếp toàn cục theo tier lỗi) được định nghĩa trong <strong>Error Detection Priority</strong> ở phần Implementation Guidelines. Các đoạn code dưới đây là các ví dụ minh họa riêng biệt, không phải một chương trình duy nhất.</p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: cả hai auto chưa có kiểu — không thể dùng x + y
+void example() {
+    auto x;
+    auto y;
+    auto result = x + y;  // TypeCannotBeInferred(BinaryOp(Identifier(x), +, Identifier(y)))
+}
+
+// Lỗi: cả hai vế chưa biết kiểu — phép gán không thể xác định kiểu
+void test() {
+    auto x;
+    auto y;
+    x = y;  // TypeCannotBeInferred(AssignExpr(Identifier(x) = Identifier(y)))
+}
+
+// Lỗi: phụ thuộc vòng tròn — không có literal, tham số, hay toán hạng có kiểu đã biết nào để neo kiểu
+void circular() {
+    auto a;
+    auto b;
+    a = b;  // TypeCannotBeInferred(AssignExpr(Identifier(a) = Identifier(b)))
+}
+
+// Lỗi: cả hai auto chưa biết kiểu — biến nhận kiểu int không giải quyết được kiểu toán hạng:
+// toán tử quan hệ trả về int cho bất kỳ cặp toán hạng số nào hợp lệ, nên kiểu ngoài ít giúp ích (Rule 2.2.1).
+void compare_autos() {
+    auto x;
+    auto y;
+    int result = x &lt; y;  // TypeCannotBeInferred(BinaryOp(Identifier(x), &lt;, Identifier(y)))
+}
+
+// Lỗi: kiểu khai báo của c chỉ kiểm tra toàn bộ biểu thức khởi tạo; nó không suy luận kiểu a / b bên trong a * b (Rule 2.2.1).
+void mixed_decl() {
+    auto a;
+    auto b;
+    int c = a * b;  // TypeCannotBeInferred(BinaryOp(Identifier(a), *, Identifier(b)))
+}
+
+// Lỗi: auto x vẫn chưa biết kiểu khi kiểm tra x + &#34;hello&#34;
+void string_mix() {
+    auto x;
+    auto y;
+    auto result = x + &#34;hello&#34;;  // TypeCannotBeInferred(BinaryOp(Identifier(x), +, StringLiteral(&#39;hello&#39;)))
+}
+
+// Lỗi: auto không bao giờ được sử dụng — báo khi kết thúc khối (không phải tại dòng VarDecl)
+void unused_auto() {
+    auto x;
+}  // TypeCannotBeInferred(BlockStmt([VarDecl(auto, x)]))
+
+// Lỗi: return dùng auto vẫn chưa có kiểu (hàm có return type suy luận; cần void main() trong chương trình đầy đủ)
+func() {
+    auto x;
+    return x;  // TypeCannotBeInferred(ReturnStmt(return Identifier(x)))
+}
+void main() {}
+
+// Hợp lệ: auto có khởi tạo
+void valid1() {
+    auto x = 10;         // Hợp lệ: kiểu suy luận là int từ literal
+    auto y = 3.14;       // Hợp lệ: kiểu suy luận là float từ literal
+    auto msg = &#34;hello&#34;;  // Hợp lệ: kiểu suy luận là string từ literal
+}
+
+// Hợp lệ: auto không có khởi tạo — kiểu suy luận từ lần gán đầu tiên
+void valid2() {
+    auto a;
+    a = 10;        // Hợp lệ: kiểu suy luận là int từ lần gán (dùng đầu tiên)
+
+    auto b;
+    b = 3.14;      // Hợp lệ: kiểu suy luận là float từ lần gán (dùng đầu tiên)
+}
+
+// Hợp lệ: auto không có khởi tạo — kiểu suy luận từ lần dùng đầu tiên trong biểu thức
+void valid3() {
+    auto x;
+    x = readInt();  // Hợp lệ: kiểu suy luận là int từ kiểu trả về của hàm
+
+    auto y;
+    int temp = 10;
+    y = temp + 5;   // Hợp lệ: kiểu suy luận là int từ biểu thức
+}
+
+// Hợp lệ: một auto chưa biết + integer literal — tie-break xác định (xem spec Rule 2.2.1)
+void valid4() {
+    auto value;
+    auto result = value + 5;  // Hợp lệ: value được gán kiểu int
+}
+
+// Hợp lệ: auto có khởi tạo từ biểu thức (các toán hạng đã có kiểu)
+void valid5() {
+    int a = 10;
+    float b = 3.14;
+    auto sum = a + b;  // Hợp lệ: kiểu suy luận là float từ biểu thức
+}
+
+// Hợp lệ: toàn bộ đối số là một định danh auto — kiểu tham số xác định kiểu x
+void valid6() {
+    auto x;
+    printInt(x);  // Hợp lệ: kiểu suy luận là int từ kiểu tham số của printInt(int)
+}
+</code></pre><hr><h3 id=6-typemismatchinstatement-không-khớp-kiểu-trong-câu-lệnh>6. TypeMismatchInStatement (Không Khớp Kiểu Trong Câu Lệnh)</h3><p><strong>Quy tắc:</strong> Tất cả các câu lệnh phải tuân theo quy tắc kiểu của TyC.</p><p><strong>Ngoại lệ:</strong> <code>TypeMismatchInStatement(&lt;statement>)</code></p><p><strong>Quy tắc kiểu cho câu lệnh:</strong></p><p><strong>Câu lệnh điều kiện (if, while, for):</strong></p><ul><li>Biểu thức điều kiện của if/while/for phải có kiểu <code>int</code> (0 là false, khác 0 là true)</li></ul><p><strong>Câu lệnh for:</strong></p><ul><li><code>&lt;init></code>, <code>&lt;condition></code>, <code>&lt;update></code> tuân theo quy tắc kiểu tương ứng</li><li>Điều kiện phải có kiểu <code>int</code></li></ul><p><strong>Câu lệnh gán (<code>ExprStmt</code> với <code>AssignExpr</code>):</strong></p><ul><li>Vế trái và vế phải phải có cùng kiểu</li><li>Gán struct: cả hai vế phải cùng kiểu struct</li><li>Một struct literal ở vế phải mà không khớp số lượng trường hoặc kiểu từng thành viên so với kiểu struct kỳ vọng là <strong><code>TypeMismatchInExpression</code></strong> trên literal đó, không phải <strong><code>TypeMismatchInStatement</code></strong></li><li>Không có type coercion trong phép gán (khác với một số ngôn ngữ)</li></ul><p><strong>Hành vi biểu thức gán:</strong></p><ul><li>Phép gán có thể dùng như một biểu thức (không chỉ là câu lệnh)</li><li>Biểu thức gán là right-associative: <code>x = y = z = 10;</code> được phân tích là <code>x = (y = (z = 10));</code></li><li>Biểu thức gán trả về giá trị của vế trái sau khi gán</li><li>Kiểu của biểu thức gán là kiểu của vế trái</li><li>Vế trái phải là một định danh hoặc biểu thức truy cập thành viên (không được là literal hoặc biểu thức khác)</li><li>Biểu thức gán có thể dùng trong ngữ cảnh biểu thức: <code>int y = (x = 5) + 7;</code> là hợp lệ</li></ul><p><strong>Câu lệnh return:</strong></p><ul><li>Biểu thức return phải khớp kiểu trả về của hàm (nếu hàm không trả về <code>void</code>)</li><li>Nếu kiểu trả về là <code>void</code>, phải dùng <code>return;</code> (không có biểu thức)</li><li>Nếu kiểu trả về khác <code>void</code>, <code>return &lt;expression>;</code> phải trả về giá trị đúng kiểu</li><li>Với hàm có kiểu trả về suy luận, kiểu trả về được suy từ câu lệnh return đầu tiên có giá trị. Tất cả các câu lệnh return tiếp theo phải trả về cùng kiểu — nếu không khớp thì là lỗi TypeMismatchInStatement</li></ul><p><strong>Câu lệnh switch:</strong></p><ul><li>Biểu thức switch phải có kiểu <code>int</code></li><li>Nhãn case phải là integer literal hoặc biểu thức hằng số kiểu <code>int</code></li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Điều kiện không phải int trong câu lệnh if
+void conditionalError() {
+    float x = 5.0;
+    if (x) {  // Lỗi: TypeMismatchInStatement tại câu lệnh if
+        printInt(1);
+    }
+
+    string message = &#34;hello&#34;;
+    if (message) {  // Lỗi: TypeMismatchInStatement tại câu lệnh if
+        printString(message);
+    }
+}
+
+// Lỗi: Điều kiện không phải int trong câu lệnh while
+void whileError() {
+    float f = 1.5;
+    while (f) {  // Lỗi: TypeMismatchInStatement tại câu lệnh while
+        printFloat(f);
+    }
+}
+
+// Lỗi: Không khớp kiểu trong phép gán
+void assignmentError() {
+    int x = 10;
+    string text = &#34;hello&#34;;
+    float f = 3.14;
+
+    x = text;    // Lỗi: TypeMismatchInStatement tại phép gán
+    text = x;    // Lỗi: TypeMismatchInStatement tại phép gán
+    f = x;       // Lỗi: TypeMismatchInStatement tại phép gán (không coercion int sang float)
+}
+
+// Lỗi: Không khớp kiểu struct trong phép gán
+struct Point {
+    int x;
+    int y;
+};
+
+struct Person {
+    string name;
+    int age;
+};
+
+void structError() {
+    Point p;
+    Person person;
+    p = person;  // Lỗi: TypeMismatchInStatement tại phép gán
+}
+
+// Lỗi: Không khớp kiểu return
+int getValue() {
+    return &#34;invalid&#34;;  // Lỗi: TypeMismatchInStatement tại câu lệnh return
+}
+
+string getText() {
+    return 42;  // Lỗi: TypeMismatchInStatement tại câu lệnh return
+}
+
+void returnError() {
+    return 10;  // Lỗi: TypeMismatchInStatement tại câu lệnh return (hàm void không trả về giá trị)
+}
+
+int returnVoidError() {
+    return;  // Lỗi: TypeMismatchInStatement tại câu lệnh return (hàm non-void phải trả về giá trị)
+}
+
+// Lỗi: Không khớp kiểu trong switch
+void switchError() {
+    float f = 3.14;
+    switch (f) {  // Lỗi: TypeMismatchInStatement tại câu lệnh switch
+        case 1: break;
+    }
+}
+
+// Hợp lệ: Khớp kiểu đúng
+void valid() {
+    int x = 10;
+    int y = 20;
+    if (x &lt; y) {  // Hợp lệ: điều kiện kiểu int
+        x = y;    // Hợp lệ: cả hai vế đều int
+    }
+
+    Point p1 = {10, 20};
+    Point p2 = {30, 40};
+    p1 = p2;      // Hợp lệ: cả hai vế đều là Point
+}
+
+// Hợp lệ: Biểu thức gán trong ngữ cảnh biểu thức
+void assignmentExpressionValid() {
+    int x;
+    int y = (x = 5) + 7;  // Hợp lệ: biểu thức gán trả về giá trị của x (sau khi gán)
+
+    int a, b, c;
+    a = b = c = 10;  // Hợp lệ: gán chained right-associative
+
+    struct Point {
+        int x;
+        int y;
+    };
+    Point p;
+    int result = (p.x = 5) + 3;  // Hợp lệ: biểu thức gán qua member access
+}
+</code></pre><hr><h3 id=7-typemismatchinexpression-không-khớp-kiểu-trong-biểu-thức>7. TypeMismatchInExpression (Không Khớp Kiểu Trong Biểu Thức)</h3><p><strong>Quy tắc:</strong> Tất cả các biểu thức phải tuân theo quy tắc kiểu của TyC cho toán tử và phép tính.</p><p><strong>Ngoại lệ:</strong> <code>TypeMismatchInExpression(&lt;expression>)</code></p><p><strong>Quy tắc kiểu cho biểu thức:</strong></p><p><strong>Toán tử số học hai ngôi (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>):</strong></p><ul><li>Cả hai toán hạng phải là <code>int</code> hoặc <code>float</code></li><li>Kiểu kết quả: <code>int</code> nếu cả hai là <code>int</code>, ngược lại là <code>float</code></li></ul><p><strong>Toán tử modulus (<code>%</code>):</strong></p><ul><li>Cả hai toán hạng phải là <code>int</code></li><li>Kiểu kết quả: <code>int</code></li></ul><p><strong>Toán tử quan hệ (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>></code>, <code>>=</code>):</strong></p><ul><li>Cả hai toán hạng phải là <code>int</code> hoặc <code>float</code></li><li>Kiểu kết quả: <code>int</code> (0 cho false, khác 0 cho true)</li></ul><p><strong>Toán tử logic (<code>&&</code>, <code>||</code>):</strong></p><ul><li>Cả hai toán hạng phải là <code>int</code></li><li>Kiểu kết quả: <code>int</code></li></ul><p><strong>Toán tử NOT logic (<code>!</code>):</strong></p><ul><li>Toán hạng phải là <code>int</code></li><li>Kiểu kết quả: <code>int</code></li></ul><p><strong>Toán tử tăng/giảm (<code>++</code>, <code>--</code>):</strong></p><ul><li>Toán hạng phải là <code>int</code> (prefix hoặc postfix)</li><li>Toán hạng phải là một định danh biến hoặc biểu thức truy cập thành viên (không được là literal hoặc biểu thức khác)</li><li>Kiểu kết quả: <code>int</code></li></ul><p><strong>Toán tử truy cập thành viên (<code>.</code>):</strong></p><ul><li>Toán hạng trái phải là kiểu struct</li><li>Toán hạng phải phải là tên thành viên của kiểu struct đó</li><li>Kiểu kết quả: kiểu của thành viên struct</li></ul><p><strong>Lời gọi hàm:</strong></p><ul><li>Số lượng đối số phải khớp số lượng tham số</li><li>Kiểu đối số phải khớp kiểu tham số (không có type coercion)</li><li>Kiểu kết quả: kiểu trả về của hàm</li></ul><p><strong>Struct literal:</strong></p><ul><li>Khi ngữ cảnh cung cấp kiểu struct kỳ vọng, literal phải có cùng số trường với struct, và kiểu của mỗi biểu thức trường phải bằng kiểu của thành viên tương ứng (không coercion giữa các kiểu nguyên thủy khác nhau)</li><li><strong>Ngoại lệ:</strong> <code>TypeMismatchInExpression(&lt;StructLiteral>)</code> — <code>&lt;StructLiteral></code> là node struct literal đầy đủ</li></ul><p><strong>Biểu thức gán:</strong></p><ul><li>Vế trái phải là định danh hoặc biểu thức truy cập thành viên (không được là literal hoặc biểu thức khác)</li><li>Vế trái và vế phải phải có cùng kiểu</li><li>Kiểu kết quả: kiểu của vế trái (sau khi gán)</li><li>Biểu thức gán trả về giá trị của vế trái sau khi gán</li><li>Có thể dùng trong ngữ cảnh biểu thức (ví dụ: <code>int y = (x = 5) + 7;</code>)</li><li>Right-associative: <code>x = y = z = 10;</code> được phân tích là <code>x = (y = (z = 10));</code></li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Không khớp kiểu trong phép toán số học
+void arithmeticError() {
+    int x = 5;
+    string text = &#34;hello&#34;;
+
+    int sum = x + text;      // Lỗi: TypeMismatchInExpression tại binary operation
+    float result = x * text; // Lỗi: TypeMismatchInExpression tại binary operation
+}
+
+// Lỗi: Modulus với toán hạng không phải int
+void modulusError() {
+    float f = 3.14;
+    int x = 10;
+
+    int result = f % x;      // Lỗi: TypeMismatchInExpression (float % int)
+    int result2 = x % f;     // Lỗi: TypeMismatchInExpression (int % float)
+}
+
+// Lỗi: Không khớp kiểu trong phép so sánh
+void relationalError() {
+    int x = 10;
+    string text = &#34;hello&#34;;
+
+    int result = x &lt; text;   // Lỗi: TypeMismatchInExpression tại binary operation
+    int equal = text == x;   // Lỗi: TypeMismatchInExpression tại binary operation
+}
+
+// Lỗi: Không khớp kiểu trong phép toán logic
+void logicalError() {
+    float f = 3.14;
+    int x = 10;
+
+    int result = f &amp;&amp; x;     // Lỗi: TypeMismatchInExpression tại binary operation
+    int not = !f;            // Lỗi: TypeMismatchInExpression tại unary operation
+}
+
+// Lỗi: Tăng/giảm trên kiểu không phải int
+void incrementError() {
+    float f = 3.14;
+    ++f;                     // Lỗi: TypeMismatchInExpression tại unary operation
+    f++;                     // Lỗi: TypeMismatchInExpression tại postfix operation
+}
+
+// Lỗi: Tăng/giảm trên literal hoặc biểu thức
+void incrementOperandError() {
+    int x = 5;
+    ++5;                     // Lỗi: TypeMismatchInExpression (không thể tăng literal)
+    --(x + 1);               // Lỗi: TypeMismatchInExpression (không thể tăng biểu thức)
+    (x + 2)++;               // Lỗi: TypeMismatchInExpression (không thể tăng biểu thức)
+}
+
+// Lỗi: Truy cập thành viên trên kiểu không phải struct
+void memberAccessError() {
+    int x = 10;
+    int value = x.member;    // Lỗi: TypeMismatchInExpression tại member access
+
+    struct Point {
+        int x;
+        int y;
+    };
+
+    Point p = {10, 20};
+    int invalid = p.z;       // Lỗi: TypeMismatchInExpression tại member access (z không tồn tại)
+}
+
+// Lỗi: Không khớp kiểu đối số trong lời gọi hàm
+void process(int x) { }
+
+void callError() {
+    string text = &#34;123&#34;;
+    process(text);           // Lỗi: TypeMismatchInExpression tại function call
+}
+
+int add(int x, int y) {
+    return x + y;
+}
+
+void callArgumentError() {
+    int result = add(10);           // Lỗi: TypeMismatchInExpression (sai số lượng đối số)
+    int result2 = add(10, 20, 30);  // Lỗi: TypeMismatchInExpression (sai số lượng đối số)
+}
+
+// Lỗi: Không khớp kiểu trong biểu thức gán
+void assignmentExpressionError() {
+    int x = 10;
+    string text = &#34;hello&#34;;
+    float f = 3.14;
+
+    int result = (x = text) + 5;  // Lỗi: TypeMismatchInExpression (int = string)
+    int value = (x = f) + 3;      // Lỗi: TypeMismatchInExpression (int = float)
+}
+
+// Lỗi: Biểu thức gán với vế trái không hợp lệ
+void assignmentLeftHandSideError() {
+    int x = 5;
+    int y = (5 = x) + 3;           // Lỗi: TypeMismatchInExpression (không gán được vào literal)
+    int z = ((x + 1) = 10) + 2;    // Lỗi: TypeMismatchInExpression (không gán được vào biểu thức)
+}
+
+// Hợp lệ: Kiểu biểu thức đúng
+void valid() {
+    int x = 10, y = 20;
+    int sum = x + y;         // Hợp lệ: cả hai int
+    int compare = x &lt; y;     // Hợp lệ: phép quan hệ trả về int
+    int logic = x &amp;&amp; y;      // Hợp lệ: phép logic trả về int
+    ++x;                     // Hợp lệ: tăng trên int
+
+    struct Point {
+        int x;
+        int y;
+    };
+
+    Point p = {10, 20};
+    int x_coord = p.x;       // Hợp lệ: truy cập thành viên
+
+    int a;
+    int b = (a = 5) + 7;     // Hợp lệ: biểu thức gán trả về giá trị của a (5), b = 12
+
+    int c, d, e;
+    c = d = e = 10;          // Hợp lệ: right-associative, tất cả bằng 10
+
+    int result = (p.x = 15) + 5;  // Hợp lệ: gán member access, result = 20
+}
+</code></pre><hr><h3 id=8-mustinloop-breakcontinue-phải-trong-vòng-lặp>8. MustInLoop (Break/Continue Phải Trong Vòng Lặp)</h3><p><strong>Quy tắc:</strong> Câu lệnh break và continue phải nằm trong vòng lặp (for hoặc while).</p><p><strong>Ngoại lệ:</strong> <code>MustInLoop(&lt;statement>)</code></p><p><strong>Quy tắc về ngữ cảnh vòng lặp:</strong></p><ul><li>Break và continue chỉ hợp lệ trong vòng lặp <code>for</code> hoặc <code>while</code></li><li>Break cũng có thể dùng trong câu lệnh <code>switch</code> (nhưng continue thì không)</li><li>Có thể lồng trong các câu lệnh điều kiện bên trong vòng lặp</li><li>Không thể vượt qua ranh giới hàm</li><li>Phải nằm trong phạm vi từ vựng của vòng lặp</li></ul><p><strong>Ví dụ:</strong></p><pre tabindex=0><code class=language-tyc data-lang=tyc>// Lỗi: Break/continue ngoài vòng lặp
+void loopError() {
+    break;     // Lỗi: MustInLoop(break)
+    continue;  // Lỗi: MustInLoop(continue)
+}
+
+// Lỗi: Break/continue trong if không có vòng lặp
+void conditionalError() {
+    if (1) {
+        break;     // Lỗi: MustInLoop(break)
+        continue;  // Lỗi: MustInLoop(continue)
+    }
+}
+
+// Lỗi: Continue trong switch (không cho phép continue trong switch)
+void switchError() {
+    int x = 1;
+    switch (x) {
+        case 1:
+            continue;  // Lỗi: MustInLoop(continue) - continue không hợp lệ trong switch
+            break;
+    }
+}
+
+// Lỗi: Break/continue trong hàm được gọi từ vòng lặp
+void helperMethod() {
+    break;     // Lỗi: MustInLoop(break) - phạm vi hàm khác
+    continue;  // Lỗi: MustInLoop(continue)
+}
+
+void loopWithCall() {
+    for (auto i = 0; i &lt; 10; ++i) {
+        helperMethod();  // Lời gọi hàm không chuyển ngữ cảnh vòng lặp
+    }
+}
+
+// Hợp lệ: Break/continue trong vòng lặp
+void validLoops() {
+    for (auto i = 0; i &lt; 10; ++i) {
+        if (i == 5) {
+            break;     // Hợp lệ: trong for
+        }
+        if (i % 2 == 0) {
+            continue;  // Hợp lệ: trong for
+        }
+        printInt(i);
+    }
+
+    auto j = 0;
+    while (j &lt; 10) {
+        if (j == 3) {
+            continue;  // Hợp lệ: trong while
+        }
+        if (j == 8) {
+            break;     // Hợp lệ: trong while
+        }
+        printInt(j);
+        ++j;
+    }
+}
+
+// Hợp lệ: Break trong switch
+void validSwitch() {
+    int day = 2;
+    switch (day) {
+        case 1:
+            printInt(1);
+            break;     // Hợp lệ: break trong switch
+        case 2:
+        case 3:
+            printInt(2);
+            break;     // Hợp lệ: break trong switch
+        default:
+            printInt(0);
+    }
+}
+
+// Hợp lệ: Vòng lặp lồng nhau
+void nestedLoops() {
+    for (auto i = 0; i &lt; 5; ++i) {
+        for (auto j = 0; j &lt; 5; ++j) {
+            if (i == j) {
+                continue;  // Hợp lệ: ảnh hưởng vòng lặp trong
+            }
+            if (j &gt; 3) {
+                break;     // Hợp lệ: thoát vòng lặp trong
+            }
+        }
+    }
+}
+</code></pre><hr><h2 id=hướng-dẫn-triển-khai>Hướng Dẫn Triển Khai</h2><h3 id=ưu-tiên-phát-hiện-lỗi>Ưu Tiên Phát Hiện Lỗi</h3><p><strong>Single-pass, lỗi đầu tiên thắng (toàn chương trình).</strong> Bộ kiểm tra thực hiện một lần <strong>duyệt</strong> ngữ nghĩa qua chương trình (thường là depth-first). <strong>Lỗi duy nhất được báo cáo</strong> là lỗi ngữ nghĩa <strong>đầu tiên</strong> gặp trong lần duyệt đó. Việc triển khai có thể dùng thêm các pass nội bộ hoặc kiểm tra trì hoãn (ví dụ cho kiểu trả về suy luận) miễn là <strong>việc báo cáo</strong> vẫn là &ldquo;lỗi đầu tiên theo thứ tự duyệt.&rdquo; <strong>Số tier không đưa lỗi sau lên trước lỗi trước:</strong> lần duyệt không được mở rộng để tìm tất cả lỗi rồi chọn theo tier nhỏ nhất. Các tier dưới đây phân loại <strong>loại lỗi</strong> và định nghĩa <strong>tie-breaking trong cùng tier</strong>; chúng không áp đặt hàng đợi ưu tiên toàn cục trên toàn chương trình.</p><p><strong>Các tier lỗi</strong> (để tài liệu hóa và xử lý tie trong cùng tier):</p><ol><li><strong>Lỗi khai báo</strong> (Redeclared, UndeclaredIdentifier, UndeclaredFunction, UndeclaredStruct)</li><li><strong>Lỗi suy luận kiểu</strong> (<code>TypeCannotBeInferred</code>; xem mục 5)</li><li><strong>Lỗi kiểu</strong> (TypeMismatchInStatement, TypeMismatchInExpression)</li><li><strong>Lỗi luồng điều khiển</strong> (MustInLoop)</li></ol><p><strong>Trong cùng một tier:</strong> nếu có nhiều hơn một lỗi cùng tier xảy ra trước khi bộ kiểm tra dừng, báo cáo lỗi <strong>đầu tiên</strong> theo thứ tự duyệt (thứ tự phụ thuộc cách kiểm tra các cấu trúc, không chỉ đơn thuần từ trái sang phải trong source).</p><p><strong>Một</strong> lỗi mỗi lần chạy.</p><hr><h3 id=quản-lý-phạm-vi>Quản Lý Phạm Vi</h3><p>Lexical scope (khối, shadowing, và <code>for</code> init so với thân vòng lặp) được định nghĩa chuẩn tắc trong <strong><code>tyc_specification.md</code> § Scope Rules</strong>. Bộ kiểm tra nên tuân theo mô hình đó; các quy tắc Redeclared / UndeclaredIdentifier trong tài liệu này là hệ quả của nó.</p><ul><li><strong>Global scope:</strong> Hàm và struct (tên duy nhất trong từng loại; tên struct và tên hàm có thể trùng nhau — xem quy tắc Redeclared ở trên). Binding global không bỏ qua <strong>khai báo trước khi dùng</strong> cho các lời gọi và sử dụng kiểu struct (mục 3–4); tuân theo <strong><code>tyc_specification.md</code> § Scope Rules, Global Scope</strong>.</li><li><strong>Function scope:</strong> Tham số (hiển thị trong toàn thân hàm; xem quy tắc Redeclared — biến cục bộ không được dùng lại tên tham số)</li><li><strong>Local scope (block):</strong> Biến khai báo trong các khối <code>{}</code></li><li><strong>Nested scopes:</strong> Phạm vi trong có thể che khuất biến cục bộ ở ngoài (không che khuất tham số của hàm bao ngoài)</li></ul><hr><h3 id=hệ-thống-suy-luận-kiểu>Hệ Thống Suy Luận Kiểu</h3><p>TyC sử dụng suy luận kiểu hoàn chỉnh với các quy tắc sau:</p><ol><li><strong>Literal:</strong> int / float / string như thông thường</li><li><strong><code>auto</code>:</strong> Từ biểu thức khởi tạo nếu có; ngược lại từ lần sử dụng đầu tiên có thể xác định kiểu</li><li><strong>Thất bại:</strong> <code>auto</code> không rõ ràng hoặc không bao giờ dùng → <code>TypeCannotBeInferred(&lt;ctx>)</code> (xem mục 5)</li><li><strong>Biểu thức:</strong> Quy tắc toán tử/toán hạng áp dụng khi đã biết kiểu</li><li><strong>Kiểu trả về hàm:</strong> Tường minh hoặc suy luận từ tổng thể các câu lệnh return của hàm (quy tắc đặc tả 5), không nhất thiết từ một lần duyệt top-to-bottom nghiêm ngặt</li></ol><hr><h3 id=quy-tắc-hệ-thống-kiểu>Quy Tắc Hệ Thống Kiểu</h3><ul><li><strong>Kiểm tra kiểu nghiêm ngặt:</strong> Không có type coercion ngầm định ngoại trừ trong phép toán số học (int + float → float)</li><li><strong>Không có function overloading:</strong> Tên hàm phải duy nhất trong các hàm (tên struct và tên hàm có thể trùng nhau)</li><li><strong>Kiểu struct:</strong> Phải được khai báo tường minh trước khi sử dụng</li><li><strong>Kiểu void:</strong> Chỉ dùng làm kiểu trả về của hàm, không dùng cho biến hoặc tham số</li></ul><hr><h3 id=hàm-built-in>Hàm Built-in</h3><p>Các hàm built-in sau được khai báo ngầm định và luôn có sẵn:</p><ul><li><code>int readInt()</code></li><li><code>float readFloat()</code></li><li><code>string readString()</code></li><li><code>void printInt(int value)</code></li><li><code>void printFloat(float value)</code></li><li><code>void printString(string value)</code></li></ul><hr><h3 id=điểm-vào-chương-trình>Điểm Vào Chương Trình</h3><p>Một chương trình TyC phải có ít nhất một hàm tên <code>main</code> không nhận tham số và trả về <code>void</code>. Hàm này là điểm vào của chương trình.</p><hr><p><em>Tài liệu được chuẩn bị cho Phân Tích Ngữ Nghĩa Tĩnh TyC</em>
+<em>Cập nhật lần cuối: Tháng 4 năm 2026</em></p></div></div></div></div><br><script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js></script><script src=../../js/app.js></script><script src=../../js/decrypt.js></script><script src=../../js/effect.js></script><script src=../../js/hide_toc.js></script><script src=../../js/copy.js></script></body></html>
